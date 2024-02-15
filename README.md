@@ -12,8 +12,7 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 对于许多用户来讲，deepin 15 依旧是非常经典的版本，但是因为底层已经非常老旧（Debian 9）以至于不能运行新的程序，所以为了解决这个问题，基于更新底层的 GXDE 就出现了以便让 DDE 15 能重回人们的视野  
 
 
-DebianDDE QQ 交流群：？  
-
+（GXDE 全称为 Gorgeous eXtended Deepin Environment）
 
 ![深度截图_dde-desktop_20240207201018.png](https://storage.deepin.org/thread/202402071219394989_深度截图_dde-desktop_20240207201018.png)
 
