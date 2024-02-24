@@ -1,0 +1,12 @@
+// Allows users belonging to privileged group to start gvfsd-admin without
+// authorization. This prevents redundant password prompt when starting
+// gvfsd-admin. The gvfsd-admin causes another password prompt to be shown
+// for each client process using the different action id and for the subject
+// based on the client process.
+polkit.addRule(function(action, subject) {
+        if ((subject.local &&
+            subject.active &&
+            subject.isInGroup ("sudo")) {
+            return polkit.Result.YES;
+        }
+});

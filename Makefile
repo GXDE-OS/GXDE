@@ -8,7 +8,9 @@ install:
 	mkdir -pv $(DESTDIR)/etc/xdg/autostart
 	mkdir -pv $(DESTDIR)/usr/bin
 	mkdir -pv $(DESTDIR)/usr/lib/systemd/system/
+	mkdir -pv $(DESTDIR)/usr/share/polkit-1/rules.d/
 	
+	cp -rv deepin-file-manager-mount.rules $(DESTDIR)/usr/share/polkit-1/rules.d/deepin-file-manager-mount.rules
 	cp -rv dde.sh $(DESTDIR)/etc/profile.d/dde.sh
 	#cp -rv debian-dde.list $(DESTDIR)/etc/apt/sources.list.d/debian-dde.list
 	cp -rv debiandde-first-config.service $(DESTDIR)/usr/lib/systemd/system/debiandde-first-config.service
