@@ -4,7 +4,7 @@
 // for each client process using the different action id and for the subject
 // based on the client process.
 polkit.addRule(function(action, subject) {
-        if ((subject.local &&
+        if (subject.local &&
             subject.active &&
             subject.isInGroup ("sudo")) {
             return polkit.Result.YES;
