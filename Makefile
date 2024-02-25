@@ -9,6 +9,7 @@ install:
 	mkdir -pv $(DESTDIR)/usr/bin
 	mkdir -pv $(DESTDIR)/usr/lib/systemd/system/
 	mkdir -pv $(DESTDIR)/usr/share/polkit-1/rules.d/
+	mkdir -pv $(DESTDIR)/etc/default/grub.d/
 	cp -rv dde-file-manager-gvfs.rules $(DESTDIR)/usr/share/polkit-1/rules.d/dde-file-manager-gvfs.rules
 	cp -rv dde.sh $(DESTDIR)/etc/profile.d/dde.sh
 	#cp -rv debian-dde.list $(DESTDIR)/etc/apt/sources.list.d/debian-dde.list
@@ -16,5 +17,6 @@ install:
 	cp -rv debian-dde.gpg $(DESTDIR)/etc/apt/trusted.gpg.d/debian-dde.gpg
 	cp debiandde-config-after-desktop $(DESTDIR)/usr/bin/debiandde-config-after-desktop
 	cp debiandde-config-after-desktop.desktop $(DESTDIR)/etc/xdg/autostart/debiandde-config-after-desktop.desktop
+	cp GXDE-grub.cfg $(DESTDIR)/etc/default/grub.d/GXDE-grub.cfg
 	chmod +x $(DESTDIR)/etc/profile.d/dde.sh
 	chmod +x $(DESTDIR)/usr/bin/debiandde-config-after-desktop
