@@ -79,7 +79,9 @@ Recommends:
  warm-sched,
  uengine,
  spark-deepin-wine-runner,
- com.gitee.uengine.runner.spark
+ com.gitee.uengine.runner.spark,
+ gxde-top-panel,
+ plank
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
