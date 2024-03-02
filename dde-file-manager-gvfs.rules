@@ -4,7 +4,7 @@
 // for each client process using the different action id and for the subject
 // based on the client process.
 polkit.addRule(function(action, subject) {
-        if (if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system") &&
+        if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system") &&
             subject.local &&
             subject.active &&
             subject.isInGroup ("sudo")) {
