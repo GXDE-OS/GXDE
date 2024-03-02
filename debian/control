@@ -1,4 +1,4 @@
-Source: debiandde
+Source: gxde
 Section: metapackages
 Priority: extra
 Maintainer: gfdgd xi <3025613752@qq.com>, LinuxDeepin Project <linuxdeepin@linuxdeepin.com>
@@ -79,7 +79,7 @@ Recommends:
  warm-sched,
  uengine,
  spark-deepin-wine-runner,
- com.gitee.uengine.runner.spark,
+ cheese,
  gxde-top-panel,
  plank
 Conflicts:
@@ -87,7 +87,7 @@ Conflicts:
  deepin-desktop-environment-desktop,
  deepin-desktop-environment-dock,
  deepin-desktop-environment-launcher,
-Description: Deepin New Desktop Environment - Next
- This is a meta package depends Deepin New Desktop Envrionment.
+Description: GXDE New Desktop Environment - Next
+ This is a meta package depends GXDE New Desktop Envrionment.
  .
  You can safety remove it after installed.
