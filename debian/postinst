@@ -1,9 +1,0 @@
-#!/bin/bash
-systemctl enable debiandde-first-config.service | true
-# 判断是不是 debian 12
-debianVersion=`cat /etc/debian_version`
-if [[ $debianVersion == 12.* ]]; then
-    echo -e "deb [trusted=true] http://dde15.debian12.gfdgdxi.top/ ./\ndeb [trusted=true] http://master.dl.sourceforge.net/project/debiandde/dde15-debian12-deb-more/ ./" | sudo tee -a /etc/apt/sources.list.d/debian-dde.list
-else
-    echo -e "deb [trusted=true] http://dde15.debian11.gfdgdxi.top/ ./\ndeb [trusted=true] http://master.dl.sourceforge.net/project/debiandde/dde15-deb-more/ ./" | sudo tee -a /etc/apt/sources.list.d/debian-dde.list
-fi

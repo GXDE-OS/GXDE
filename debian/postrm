@@ -1,2 +1,0 @@
-#!/bin/bash
-rm -v /etc/apt/sources.list.d/debian-dde.list
