@@ -27,6 +27,12 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 ![深度截图_选择区域_20240207200647.png](https://storage.deepin.org/thread/202402071219395788_深度截图_选择区域_20240207200647.png)
 
 
+## 测试 ISO
+> 目前 ISO 支持 amd64、arm64  
+https://sourceforge.net/projects/gxde-os  
+mips64、loong64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
+
+
 ## 其它项目
 Deepin：https://github.com/linuxdeepin/  
 Wine 运行器：https://gitee.com/gfdgd-xi/deep-wine-runner  
