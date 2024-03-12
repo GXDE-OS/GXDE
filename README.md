@@ -29,6 +29,7 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 
 ## 测试 ISO
 > 目前 ISO 支持 amd64、arm64  
+
 https://sourceforge.net/projects/gxde-os  
 mips64、loong64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
 
