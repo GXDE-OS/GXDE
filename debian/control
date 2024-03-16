@@ -26,9 +26,6 @@ Depends: ${misc:Depends},
  deepin-screensaver
 Recommends:
  file-roller,
- deepin-manual,
- dde-introduction,
- deepin-appstore,
  gksu,
  deepin-editor,
  deepin-system-monitor,
@@ -81,7 +78,8 @@ Recommends:
  spark-deepin-wine-runner,
  cheese,
  gxde-top-panel,
- plank
+ plank,
+ fcitx5-material-color
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
