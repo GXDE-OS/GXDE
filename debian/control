@@ -23,7 +23,8 @@ Depends: ${misc:Depends},
  debian-dde-wallpapers,
  fonts-noto,
  dde-kwin,
- deepin-screensaver
+ deepin-screensaver,
+ gxde-default-settings
 Recommends:
  file-roller,
  gksu,
