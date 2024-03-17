@@ -81,6 +81,7 @@ Recommends:
  plank,
  fcitx5-material-color,
  tela-grub2-themes,
+ plymouth-theme-gxde-logo,
  fcitx5 | fcitx
 Conflicts:
  dde-control-center(<< 2.90.5),
