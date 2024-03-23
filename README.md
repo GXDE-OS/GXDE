@@ -14,18 +14,13 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 
 （GXDE 全称为 Gorgeous eXtended Deepin Environment）
 
-![深度截图_dde-desktop_20240207201018.png](https://storage.deepin.org/thread/202402071219394989_深度截图_dde-desktop_20240207201018.png)
+![image.png](https://storage.deepin.org/thread/20240323104713503_image.png)
 
-![深度截图_dde-desktop_20240207201001.png](https://storage.deepin.org/thread/202402071219393497_深度截图_dde-desktop_20240207201001.png)
+![image.png](https://storage.deepin.org/thread/20240323104646564_image.png)
 
-![深度截图_dde-desktop_20240207200729.png](https://storage.deepin.org/thread/202402071219394460_深度截图_dde-desktop_20240207200729.png)
+![image.png](https://storage.deepin.org/thread/202403231055259300_image.png)
 
-![深度截图_dde-desktop_20240207200511.png](https://storage.deepin.org/thread/202402071219399634_深度截图_dde-desktop_20240207200511.png)
-
-![深度截图_选择区域_20240207201902.png](https://storage.deepin.org/thread/20240207121939689_深度截图_选择区域_20240207201902.png)
-
-![深度截图_选择区域_20240207200647.png](https://storage.deepin.org/thread/202402071219395788_深度截图_选择区域_20240207200647.png)
-
+![image.png](https://storage.deepin.org/thread/202403231050558804_image.png)
 
 ## 测试 ISO
 > 目前 ISO 支持 amd64、arm64  
