@@ -1,4 +1,4 @@
-Source: gxde
+Source: gxde-dclc
 Section: metapackages
 Priority: extra
 Maintainer: gfdgd xi <3025613752@qq.com>, LinuxDeepin Project <linuxdeepin@linuxdeepin.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>=8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://www.gfdgdxi.top
 
-Package: gxde-desktop
+Package: gxde-desktop-dclc
 Architecture: all
 Depends: ${misc:Depends},
  deepin-desktop-base,
@@ -16,38 +16,23 @@ Depends: ${misc:Depends},
  dde-launcher,
  startdde,
  dde-session-ui,
- deepin-artwork,
  dde-file-manager,
  dde-qt5integration,
  eject,
  debian-dde-wallpapers,
  fonts-noto,
  dde-kwin,
- deepin-screensaver,
  gxde-default-settings
 Recommends:
- file-roller,
  gksu,
- deepin-editor,
  deepin-system-monitor,
  pppoe,
  gvfs-fuse,
- smbclient,
- python-smbc,
- cups-filters,
- printer-driver-all,
- foomatic-db-compressed-ppds,
- foomatic-db-engine,
- openprinting-ppds,
  libsane-hpaio,
  linux-firmware,
  wireless-tools,
- ttf-deepin-opensymbol,
  deepin-terminal,
- printer-driver-hpcups,
- printer-driver-hpijs,
  libmtp-runtime,
- samsung-print,
  open-vm-tools-desktop,
  open-vm-tools,
  usbmuxd,
@@ -56,36 +41,20 @@ Recommends:
  libimobiledevice-utils,
  dnsutils,
  libfile-mimeinfo-perl,
- deepin-shortcut-viewer,
- crda,
  network-manager-integration-plugins,
  libtxc-dxtn-s2tc0 | libtxc-dxtn-s2tc,
  libflashplugin-pepper,
  miraclecast,
  x-display-manager,
- deepin-screenshot,
- deepin-image-viewer,
- dde-calendar,
- deepin-calculator,
- deepin-voice-recorder,
  deepin-screen-recorder,
- deepin-font-installer,
  warm-sched,
- spark-deepin-wine-runner,
- cheese,
- gxde-top-panel,
- plank,
- fcitx5-material-color,
- tela-grub2-themes,
- plymouth-theme-gxde-logo,
- fcitx5 | fcitx
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
  deepin-desktop-environment-dock,
  deepin-desktop-environment-launcher,
  libdframeworkdbus2(>> 15)
-Description: GXDE New Desktop Environment - Next
+Description: GXDE New Desktop Environment For Deepin Community Live CD - Next
  This is a meta package depends GXDE New Desktop Envrionment.
  .
  You can safety remove it after installed.
