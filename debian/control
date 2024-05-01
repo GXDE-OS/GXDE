@@ -36,7 +36,8 @@ Depends: ${misc:Depends},
  gedit,
  fcitx5,
  com.uostools.livecdtools,
- bleachbit
+ bleachbit,
+ testdisk
 Recommends:
  gksu,
  deepin-system-monitor,
