@@ -35,6 +35,11 @@ Waydroid 运行器：https://gitee.com/gfdgd-xi/waydroid-runner
 UEngine 运行器：https://gitee.com/gfdgd-xi/uengine-runner  
 Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd  
 
+## 鸣谢
+衷心的感谢星火提供的服务器，使 GXDE 可以获得更好的体验  
+<img src="spark-store.svg" width="250"  /> 
+
+
 ## 请作者喝杯茶
 如果您觉得对你有帮助，可以请作者喝杯茶  
 <img src="Icon/QR/Wechat.png" width="250"  /> 
