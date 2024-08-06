@@ -38,6 +38,11 @@ Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd
 ## 鸣谢
 衷心的感谢星火提供的服务器，使 GXDE 可以获得更好的体验  
 <img src="spark-store.svg" width="250"  /> 
+同时本项目也使用了以下列出的项目，对以下项目的开发者与维护者献出衷心的感谢：    
+音乐插件：https://github.com/SeptemberHX/dde-mpris2-plugin  
+资源监视插件：https://gitee.com/q77190858/dde-sys-monitor-plugin/  
+DDE Top Panel：https://github.com/SeptemberHX/dde-top-panel  
+
 
 
 ## 请作者喝杯茶
