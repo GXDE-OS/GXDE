@@ -14,18 +14,26 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 
 （GXDE 全称为 Gorgeous eXtended Deepin Environment）
 
-![5AA04F424D603346FFB373D10E2DDA2C.png](https://storage.deepin.org/thread/202405111114083300_5AA04F424D603346FFB373D10E2DDA2C.png)
-![44F838BF87FE026E46FF650DF49AD371.png](https://storage.deepin.org/thread/20240511111408456_44F838BF87FE026E46FF650DF49AD371.png)
-![0C9D6404AC7A70BB4C40D340E65F390D.png](https://storage.deepin.org/thread/202405111114072540_0C9D6404AC7A70BB4C40D340E65F390D.png)
-![8BF9D58D10F7C40444D10A8E033EF637.png](https://storage.deepin.org/thread/202405111114074425_8BF9D58D10F7C40444D10A8E033EF637.png)
-![808073CD25C40884DB129D2FFAC36193.png](https://storage.deepin.org/thread/202405111114071318_808073CD25C40884DB129D2FFAC36193.png)
+![sample-work.png](https://storage.deepin.org/thread/202408120026221621_sample-work.png)
+
+![1.png](https://storage.deepin.org/thread/202408120029231283_1.png)
+
+![2.png](https://storage.deepin.org/thread/202408120029234574_2.png)
+
+![4.png](https://storage.deepin.org/thread/202408120026329613_4.png)
+
+![3.png](https://storage.deepin.org/thread/202408120026315491_3.png)
+
+![2.png](https://storage.deepin.org/thread/20240812002631555_2.png)
+
+![1.png](https://storage.deepin.org/thread/202408120026316394_1.png)
 
 
 ## 测试 ISO
-> 目前 ISO 支持 amd64、arm64  
+> 目前 ISO 支持 amd64、arm64、loong64  
 
 https://sourceforge.net/projects/gxde-os  
-mips64、loong64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
+mips64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
 
 
 ## 其它项目
