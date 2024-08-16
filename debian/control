@@ -78,7 +78,8 @@ Recommends:
  fcitx5-material-color,
  tela-grub2-themes,
  plymouth-theme-gxde-logo,
- fcitx5 | fcitx
+ fcitx5,
+ fcitx5-table
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
