@@ -1,10 +1,25 @@
 Source: gxde
 Section: metapackages
 Priority: extra
-Maintainer: gfdgd xi <3025613752@qq.com>, LinuxDeepin Project <linuxdeepin@linuxdeepin.com>
+Maintainer: gfdgd xi <3025613752@qq.com>
 Build-Depends: debhelper (>=8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://www.gfdgdxi.top
+
+Package: gxde-desktop-extra
+Architecture: all
+Depends: ${misc:Depends},
+ gxde-voice-recorder,
+ gxde-system-monitor,
+ gxde-calculator,
+ gxde-terminal,
+ gxde-deb-installer,
+ gxde-editor,
+ gxde-image-viewer
+Description: GXDE New Desktop Environment Extra - Next
+ This is a meta package depends GXDE New Desktop Envrionment Extra.
+ .
+ You can safety remove it after installed.
 
 Package: gxde-desktop
 Architecture: all
@@ -28,8 +43,8 @@ Depends: ${misc:Depends},
 Recommends:
  file-roller,
  gksu,
- deepin-editor,
- deepin-system-monitor,
+ gxde-editor,
+ gxde-system-monitor,
  pppoe,
  gvfs-fuse,
  smbclient,
@@ -43,7 +58,7 @@ Recommends:
  linux-firmware,
  wireless-tools,
  ttf-deepin-opensymbol,
- deepin-terminal-gtk,
+ gxde-terminal,
  printer-driver-hpcups,
  printer-driver-hpijs,
  libmtp-runtime,
@@ -64,10 +79,10 @@ Recommends:
  miraclecast,
  x-display-manager,
  deepin-screenshot,
- deepin-image-viewer,
+ gxde-image-viewer,
  dde-calendar,
- deepin-calculator,
- deepin-voice-recorder,
+ gxde-calculator,
+ gxde-voice-recorder,
  deepin-screen-recorder,
  deepin-font-installer,
  warm-sched,
