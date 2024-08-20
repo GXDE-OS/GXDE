@@ -16,7 +16,8 @@ Depends: ${misc:Depends},
  gxde-editor,
  gxde-image-viewer,
  gxde-icon-theme,
- gxde-sea-icon-theme
+ gxde-sea-icon-theme,
+ gxde-download
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
