@@ -41,7 +41,8 @@ Depends: ${misc:Depends},
  fonts-noto,
  dde-kwin,
  deepin-screensaver,
- gxde-default-settings
+ gxde-default-settings,
+ gxde-desktop-extra
 Recommends:
  gxde-desktop-extra,
  file-roller,
