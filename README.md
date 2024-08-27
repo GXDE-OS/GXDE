@@ -1,4 +1,4 @@
-<p width=100px align="center"><img width=256 src="icon.svg"></p>
+![Logo](new-logo-long.png)
 <h1 align="center">GXDE</h1>
 <hr>
 <a href='https://gitee.com/gfdgd-xi/debian-dde/stargazers'><img src='https://gitee.com/gfdgd-xi/debian-dde/badge/star.svg?theme=dark' alt='star'></img></a>
