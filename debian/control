@@ -19,7 +19,8 @@ Depends: ${misc:Depends},
  gxde-sea-icon-theme,
  gxde-download,
  gxde-ocr,
- gxde-music
+ gxde-music,
+ deepin-movie
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
