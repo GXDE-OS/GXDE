@@ -45,7 +45,6 @@ Depends: ${misc:Depends},
  dde-kwin,
  deepin-screensaver,
  gxde-default-settings,
- gxde-desktop-extra
 Recommends:
  gxde-desktop-extra,
  file-roller,
