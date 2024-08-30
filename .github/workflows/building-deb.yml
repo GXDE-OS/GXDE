@@ -33,15 +33,15 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
 
       - name: Pack tar
         run: |
@@ -78,15 +78,15 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
 
       - name: Pack tar
         run: |
@@ -122,15 +122,15 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
 
       - name: Pack tar
         run: |
@@ -165,15 +165,15 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://mirror.sjtu.edu.cn/debian-ports/
+          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://mirror.sjtu.edu.cn/debian-ports/
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
-          env gitPath=$(basename $REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
 
       - name: Pack tar
         run: |
