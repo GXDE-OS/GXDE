@@ -1,0 +1,13 @@
+name: Building Testing
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  call:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb.yml@DebianDDE15
+    secrets: inherit
