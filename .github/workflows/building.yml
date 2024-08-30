@@ -9,5 +9,5 @@ on:
 
 jobs:
   call:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb.yml@DebianDDE15
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb.yml@master
     secrets: inherit
