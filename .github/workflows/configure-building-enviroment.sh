@@ -38,5 +38,11 @@ neofetch
 #apt build-dep qemu -y
 # 如果是 Debian10 就需要安装 Python3 的依赖
 #apt build-dep python3.7 -y
-apt build-dep . -y
+for i in {1..5};
+do
+    apt build-dep . -y
+    if [[ $? == 0 ]]; then
+        break
+    fi
+done
 exit 0
