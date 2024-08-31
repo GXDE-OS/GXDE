@@ -27,9 +27,17 @@ else
     fi
 fi
 sudo debootstrap --arch=$1 $2 $bottlePath $5
+if [[ $? != 0 ]] && [[ $1 == loong64 ]]; then
+    sudo apt install squashfs-tools git -y
+    wget https://github.com/GXDE-OS/GXDE/releases/download/resources/debian-base-loong64.squashfs
+    sudo unsquashfs debian-base-loong64.squashfs
+    sudo rm -rf $bottlePath/
+    sudo mv squashfs-root $bottlePath -v
+fi
 sudo bash .github/workflows/pardus-chroot $bottlePath
 # 配置 git
 sudo chroot $bottlePath apt update
+sudo chroot $bottlePath apt full-upgrade -y
 sudo chroot $bottlePath apt install git -y
 sudo chroot $bottlePath git clone $3 --depth=1
 sudo chroot $bottlePath git clone $4 --depth=1
