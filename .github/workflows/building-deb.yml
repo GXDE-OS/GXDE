@@ -156,6 +156,7 @@ jobs:
   
   loong64:
     runs-on: ubuntu-latest
+    container: debian:sid
     steps:
       - name: Clone Repository To Get Script
         run: |
