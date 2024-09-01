@@ -156,12 +156,12 @@ jobs:
   
   loong64:
     runs-on: ubuntu-latest
-    container: debian:sid
+    #container: debian:sid
     steps:
       - name: Clone Repository To Get Script
         run: |
-          apt update
-          apt install sudo git -y
+          #apt update
+          #apt install sudo git -y
           git clone $REPOSITORY --depth=1
           mv $(basename $REPOSITORY)/* . -v
           mv $(basename $REPOSITORY)/.* . -v | true
