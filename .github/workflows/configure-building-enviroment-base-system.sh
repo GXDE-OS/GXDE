@@ -17,7 +17,7 @@ function useDebianPort() {
 }
 
 sudo apt update
-sudo apt install debootstrap qemu-user-static git -y
+sudo apt install debootstrap binfmt-support qemu-user-static git -y
 bottlePath=./system-bottle
 if [[ $2 == "beige" ]]; then
     getd23debootstrap
