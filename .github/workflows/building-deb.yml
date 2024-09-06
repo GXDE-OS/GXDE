@@ -165,7 +165,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh riscv64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh riscv64 trixie $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
