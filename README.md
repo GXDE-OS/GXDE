@@ -54,7 +54,10 @@ Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd
 资源监视插件：https://gitee.com/q77190858/dde-sys-monitor-plugin/  
 DDE Top Panel：https://github.com/SeptemberHX/dde-top-panel  
 
-
+## 仓库地址
+Gitee：http://gitee.com/GXDE-OS  
+Github：http://github.com/GXDE-OS
+Gitcode：https://gitcode.com/GXDE-OS  
 
 ## 请作者喝杯茶
 如果您觉得对你有帮助，可以请作者喝杯茶  
