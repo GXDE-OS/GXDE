@@ -15,6 +15,8 @@ Sourceforge：https://sourceforge.net/projects/gxde-os/files
 
 mips64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
 
+GXDE 仍不完美，请在安装前确认 https://gitee.com/GXDE-OS/gxde-faq/blob/master/README.md 中的事项
+
 Legacy 启动的用户请在安装时选中 高级选项 中的Debian安装器进行安装
 
 ## 介绍
