@@ -82,7 +82,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
@@ -126,7 +126,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
@@ -169,7 +169,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
@@ -215,7 +215,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
 
       - name: Remove Debug Package
         run: |
