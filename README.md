@@ -4,6 +4,18 @@
 <a href='https://gitee.com/gfdgd-xi/debian-dde/stargazers'><img src='https://gitee.com/gfdgd-xi/debian-dde/badge/star.svg?theme=dark' alt='star'></img></a>
 <a href='https://gitee.com/gfdgd-xi/debian-dde/members'><img src='https://gitee.com/gfdgd-xi/debian-dde/badge/fork.svg?theme=dark' alt='fork'></img></a>  
 
+
+
+## 系统安装
+> 目前 ISO 支持 amd64、loong64  
+
+网盘：https://www.123pan.com/s/pDSKVv-4XIWv.html  
+Sourceforge：https://sourceforge.net/projects/gxde-os/files  
+
+mips64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
+
+Legacy 启动的用户请在安装时选中 高级选项 中的Debian安装器进行安装
+
 ## 介绍
 
 The classical version--deepin 15 is still preferred by a handful of deepin users. However, it is on the basis of Debian 9, making it too outdated to run newer programs.   
@@ -29,14 +41,6 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 ![1.png](https://storage.deepin.org/thread/202408120026316394_1.png)
 
 
-## 测试 ISO
-> 目前 ISO 支持 amd64、arm64、loong64  
-
-网盘：https://www.123pan.com/s/pDSKVv-4XIWv.html  
-Sourceforge：https://sourceforge.net/projects/gxde-os/files  
-
-mips64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
-
 
 ## 其它项目
 Deepin：https://github.com/linuxdeepin/  
@@ -46,7 +50,7 @@ UEngine 运行器：https://gitee.com/gfdgd-xi/uengine-runner
 Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd  
 
 ## 鸣谢
-由衷的感谢星火提供的资源和服务，使 GXDE 可以获得更好的体验  
+由衷的感谢[星火计划/星火应用商店](https://gitee.com/spark-store-project/)提供的资源和服务，使 GXDE 可以获得更好的体验  
 <img src="spark-store.svg" width="250"  />   
 
 同时本项目也使用了以下列出的项目，对以下项目的开发者与维护者献出衷心的感谢：    
