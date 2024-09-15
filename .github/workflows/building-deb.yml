@@ -155,7 +155,7 @@ jobs:
           sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
   
   riscv64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Clone Repository To Get Script
         run: |
@@ -198,8 +198,7 @@ jobs:
           sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
 
   loong64:
-    runs-on: ubuntu-latest
-    #container: debian:sid
+    runs-on: ubuntu-24.04
     steps:
       - name: Clone Repository To Get Script
         run: |
