@@ -9,7 +9,8 @@
 ## 系统安装
 > 目前 ISO 支持 amd64、loong64  
 
-网盘：https://www.123pan.com/s/pDSKVv-4XIWv.html  
+123盘：https://www.123pan.com/s/pDSKVv-4XIWv.html  
+huang111：https://pan.huang1111.cn/s/laonjFL  
 Sourceforge：https://sourceforge.net/projects/gxde-os/files  
 
 mips64 架构的安装方法可以参考：https://gitee.com/GXDE-OS/document/blob/master/Install.md  
