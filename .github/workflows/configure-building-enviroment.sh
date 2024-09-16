@@ -20,7 +20,14 @@ echo "deb [trusted=true] https://repo-gxde.gfdgdxi.top/gxde-os/bixie ./" >> /etc
 if [[ $1 == "loong64" ]]; then
     echo "deb [trusted=true] http://mirror.sjtu.edu.cn/debian-ports unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 fi
-apt update
+for i in {1..8};
+do
+    apt update -y
+    if [[ $? == 0 ]]; then
+        break
+    fi
+    sleep 1
+done
 apt install dpkg-dev sudo neofetch debian-ports-archive-keyring debian-archive-keyring -y
 neofetch
 #if [[ `arch` != "x86_64" ]]; then
@@ -44,5 +51,6 @@ do
     if [[ $? == 0 ]]; then
         break
     fi
+    sleep 1
 done
 exit 0
