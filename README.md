@@ -1,8 +1,8 @@
 ![Logo](new-logo-long.png)
 <h1 align="center">GXDE</h1>
 <hr>
-<a href='https://gitee.com/gfdgd-xi/debian-dde/stargazers'><img src='https://gitee.com/gfdgd-xi/debian-dde/badge/star.svg?theme=dark' alt='star'></img></a>
-<a href='https://gitee.com/gfdgd-xi/debian-dde/members'><img src='https://gitee.com/gfdgd-xi/debian-dde/badge/fork.svg?theme=dark' alt='fork'></img></a>  
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
 
 
 
