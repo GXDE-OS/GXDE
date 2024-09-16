@@ -29,6 +29,8 @@ In order to solve this problem, GXDE has been under development. It is on the ba
 
 （GXDE 全称为 Gorgeous eXtended Deepin Environment）
 
+QQ 群：881201853
+
 ![sample-work.png](https://storage.deepin.org/thread/202408120026221621_sample-work.png)
 
 ![1.png](https://storage.deepin.org/thread/202408120029231283_1.png)
@@ -63,7 +65,7 @@ DDE Top Panel：https://github.com/SeptemberHX/dde-top-panel
 
 ## 仓库地址
 Gitee：http://gitee.com/GXDE-OS  
-Github：http://github.com/GXDE-OS
+Github：http://github.com/GXDE-OS  
 Gitcode：https://gitcode.com/GXDE-OS  
 
 ## 请作者喝杯茶
