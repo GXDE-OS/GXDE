@@ -61,7 +61,7 @@ for i in range(1, page + 1):
         repoList.append(j["name"])
 # 多线程处理以提升速度
 thread = 0
-threadMax = 16
+threadMax = 32
 for i in repoList:
     while True:
         time.sleep(0.1)
