@@ -47,13 +47,13 @@ for i in repoList:
     if (not os.path.exists(f"{programPath}/git-clone")):
         os.makedirs(f"{programPath}/git-clone")
     print(f"======================> {pullUrl}/{i}")
-    os.system(f"cd '{programPath}/git-clone' ; git clone '{pullUrl}/{i}'")
+    os.system(f"cd '{programPath}/git-clone' ; git clone --bare '{pullUrl}/{i}'")
     # 推送
     for j in range(len(pushUrl)):
         # git remote set-url origin 
         gitUrl = pushUrl[j].replace("@USER@", userName[j]).replace("@PASS@", password[j]) + "/" + i
-        os.system(f"cd '{programPath}/git-clone/{i}' ; git remote set-url origin '{gitUrl}'")
-        os.system(f"cd '{programPath}/git-clone/{i}' ; git push --mirror -f")
+        os.system(f"cd '{programPath}/git-clone/{i}.git' ; git remote set-url origin '{gitUrl}'")
+        os.system(f"cd '{programPath}/git-clone/{i}.git' ; git push --mirror")
     # 移除临时文件
-    os.system(f"rm -rf '{programPath}/git-clone/{i}'")
+    os.system(f"rm -rf '{programPath}/git-clone/{i}.git'")
 
