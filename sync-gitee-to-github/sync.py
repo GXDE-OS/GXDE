@@ -9,7 +9,8 @@ dataHeaders = {
 }
 pullUrl = "https://gitee.com/GXDE-OS/"
 pushUrl = [
-    "https://@USER@:@PASS@@github.com/GXDE-OS/"
+    "https://@USER@:@PASS@@github.com/GXDE-OS/",
+    "https://@USER@:@PASS@@gitcode.com/GXDE-OS/"
 ]
 
 if (len(sys.argv) < 1 + len(pushUrl) * 2):
@@ -52,7 +53,7 @@ for i in repoList:
         # git remote set-url origin 
         gitUrl = pushUrl[j].replace("@USER@", userName[j]).replace("@PASS@", password[j]) + "/" + i
         os.system(f"cd '{programPath}/git-clone/{i}' ; git remote set-url origin '{gitUrl}'")
-        os.system(f"cd '{programPath}/git-clone/{i}' ; git push origin +'*'")
+        os.system(f"cd '{programPath}/git-clone/{i}' ; git push --mirror -f")
     # 移除临时文件
     os.system(f"rm -rf '{programPath}/git-clone/{i}'")
 

@@ -18,9 +18,11 @@ jobs:
 
       - name: Push
         env: 
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUBTOKEN: ${{ secrets.GITHUBTOKEN }}
           GITHUBUSER: ${{ secrets.GITHUBUSER }}
+          GITCODETOKEN: ${{ secrets.GITCODETOKEN }}
+          GITCODEUSER: ${{ secrets.GITCODEUSER }}
         run: |
           cd sync-gitee-to-github
-          python3 sync.py $GITHUBUSER $TOKEN
+          python3 sync.py $GITHUBUSER $GITHUBTOKEN $GITCODEUSER $GITCODETOKEN
 
