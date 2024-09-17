@@ -1,7 +1,9 @@
 #!/bin/bash
 import os
 import sys
+import time
 import requests
+import threading
 
 programPath = os.path.split(os.path.realpath(__file__))[0]  # 返回 string
 dataHeaders = {
@@ -30,19 +32,8 @@ for i in range(1, len(sys.argv)):
     if (i % 2 == 0):
         password.append(sys.argv[i])
 
-
-
-data = requests.get("https://github.com/orgs/GXDE-OS/repos_list?q=&page=1", headers=dataHeaders).json()
-# 获取页数
-page = int(data["pageCount"])
-repoList = []
-# 获取仓库列表
-for i in range(1, page + 1):
-    pageData = requests.get(f"https://github.com/orgs/GXDE-OS/repos_list?q=&page={i}", headers=dataHeaders).json()
-    repositories = pageData["repositories"]
-    for j in repositories:
-        repoList.append(j["name"])
-for i in repoList:
+def sync(i):
+    global thread
     # 拉取代码进行同步
     if (not os.path.exists(f"{programPath}/git-clone")):
         os.makedirs(f"{programPath}/git-clone")
@@ -56,4 +47,26 @@ for i in repoList:
         os.system(f"cd '{programPath}/git-clone/{i}.git' ; git push --mirror")
     # 移除临时文件
     os.system(f"rm -rf '{programPath}/git-clone/{i}.git'")
+    thread -= 1
+
+data = requests.get("https://github.com/orgs/GXDE-OS/repos_list?q=&page=1", headers=dataHeaders).json()
+# 获取页数
+page = int(data["pageCount"])
+repoList = []
+# 获取仓库列表
+for i in range(1, page + 1):
+    pageData = requests.get(f"https://github.com/orgs/GXDE-OS/repos_list?q=&page={i}", headers=dataHeaders).json()
+    repositories = pageData["repositories"]
+    for j in repositories:
+        repoList.append(j["name"])
+# 多线程处理以提升速度
+thread = 0
+threadMax = 10
+for i in repoList:
+    while True:
+        time.sleep(0.1)
+        if (thread < threadMax):
+            threading.Thread(target=sync, args=[i]).start()
+            thread += 1
+            break
 

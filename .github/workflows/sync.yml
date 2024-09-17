@@ -3,7 +3,9 @@ on:
   workflow_call:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 * * *"
+    - cron: "0 10 * * *"
+    - cron: "0 20 * * *"
 
 jobs:  
   sync:
