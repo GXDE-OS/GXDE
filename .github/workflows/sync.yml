@@ -1,0 +1,26 @@
+name: Synch Gitee To Github
+on:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:  
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Config
+        run: |
+          sudo apt update
+          sudo apt install git python3-requests -y
+
+      - name: Push
+        env: 
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUBUSER: ${{ secrets.GITHUBUSER }}
+        run: |
+          cd sync-gitee-to-github
+          python3 sync.py $GITHUBUSER $TOKEN
+
