@@ -4,7 +4,7 @@
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 <a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
 
-
+**[English](./README.md)**
 
 ## 系统安装
 > 目前 ISO 支持 amd64、loong64  

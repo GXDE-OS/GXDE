@@ -4,7 +4,7 @@
 
 You can track our development progress at https://gitee.com/GXDE-OS/GXDE/board
 
-[中文](./FAQ.zh.md)
+**[中文](./FAQ.zh.md)**
 
 ---
 

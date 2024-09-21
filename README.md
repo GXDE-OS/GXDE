@@ -4,6 +4,8 @@
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 <a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
 
+**[中文](./README.zh.md)**
+
 ## System Installation
 > Currently, ISO supports amd64, loong64  
 

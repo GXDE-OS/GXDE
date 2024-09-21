@@ -1,7 +1,7 @@
 # 如何安装 GXDE？
 ## 镜像安装
 
-[English](./Install.md)
+**[English](./Install.md)**
 
 123盘：https://www.123pan.com/s/pDSKVv-4XIWv.html
 

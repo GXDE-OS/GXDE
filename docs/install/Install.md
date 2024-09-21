@@ -1,7 +1,7 @@
 # How to Install GXDE?
 ## Image Installation
 
-[中文](./Install.zh.md)
+**[中文](./Install.zh.md)**
 
 123pan: https://www.123pan.com/s/pDSKVv-4XIWv.html
 

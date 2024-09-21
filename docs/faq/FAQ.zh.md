@@ -4,7 +4,7 @@
 
 请在 https://gitee.com/GXDE-OS/GXDE/board 看板处追踪我们的开发进度
 
-[English](./FAQ.md)
+**[English](./FAQ.md)**
 
 ---
 
