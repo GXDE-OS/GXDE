@@ -22,7 +22,14 @@ Depends: ${misc:Depends},
  gxde-music,
  gxde-picker,
  gxde-font-installer,
- deepin-movie
+ deepin-movie,
+ dde-requ,
+ gxde-quick-hash,
+ gxde-sendbylan,
+ gxde-dict,
+ gxde-system-assistant,
+ spark-store | aptss
+ 
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
@@ -102,7 +109,10 @@ Recommends:
  tela-grub2-themes,
  plymouth-theme-gxde-logo,
  fcitx5,
- fcitx5-table
+ fcitx5-table,
+ gxde-shell-tools
+
+
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,

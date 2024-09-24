@@ -1,3 +1,9 @@
+gxde (2024.09.24) UNRELEASED; urgency=medium
+
+  * add 15.14 conponents dependencies
+
+ -- shenmo <shenmo@spark-app.store>  Sun, 01 Sep 2024 08:27:49 +0800
+
 gxde (2024.09.01) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
