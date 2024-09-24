@@ -28,8 +28,7 @@ Depends: ${misc:Depends},
  gxde-sendbylan,
  gxde-dict,
  gxde-system-assistant,
- spark-store | aptss
- 
+ spark-store | aptss 
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
@@ -111,8 +110,6 @@ Recommends:
  fcitx5,
  fcitx5-table,
  gxde-shell-tools
-
-
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
