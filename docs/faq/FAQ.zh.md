@@ -37,6 +37,8 @@ sudo aptss install gxde-desktop gxde-desktop-extra -y
 
 ```
 
+**GXDE与KDE有可能的冲突，请不要同时安装它们，这可能会带来错误**
+
 ---
 
 Q3: 如何制作启动盘？

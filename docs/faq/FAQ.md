@@ -36,7 +36,7 @@ sudo aptss install gxde-testing-source -y
 sudo aptss install gxde-desktop gxde-desktop-extra -y
 
 ```
-
+**There are potential conflict between GXDE and KDE. Don't install them both or maybe something will crash**
 ---
 
 
