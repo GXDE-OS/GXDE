@@ -3,7 +3,7 @@
 
 **[English](./Install.md)**
 
-123盘：https://www.123pan.com/s/pDSKVv-4XIWv.html
+
 
 huang111：https://pan.huang1111.cn/s/laonjFL
 
@@ -37,3 +37,7 @@ sudo aptss install gxde-desktop gxde-desktop-extra -y
 ```
 
 重启即可
+
+## 在Termux PRoot或其他安卓设备上安装
+
+请查看 https://bbs.deepin.org.cn/post/279414
