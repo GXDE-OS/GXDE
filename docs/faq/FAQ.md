@@ -48,10 +48,14 @@ A3: Please manually install the proprietary driver or install the package `linux
 
 
 ---
+
  Q4: What is beta testing? How can I join the beta test?
  
  A4: The latest development progress will be included in the beta test. If you want to experience the latest content, you can join the beta, but it is also unstable. It is recommended that users with some experience join.
  
+ A4: Starting from version 15.14, you can join the beta test with one click in the Control Center. For details, see: https://www.bilibili.com/video/BV1FgsvenEjq
+ 
+ A4: Please join our QQ Group to feedback: 881201853
 
 ---
 
