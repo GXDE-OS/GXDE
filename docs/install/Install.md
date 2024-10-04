@@ -3,7 +3,6 @@
 
 **[中文](./Install.zh.md)**
 
-123pan: https://www.123pan.com/s/pDSKVv-4XIWv.html
 
 huang111: https://pan.huang1111.cn/s/laonjFL
 
@@ -37,3 +36,6 @@ sudo aptss install gxde-desktop gxde-desktop-extra -y
 
 Then restart.
 
+## Install on Termux PRoot or other Android devices
+
+Check: https://bbs.deepin.org.cn/post/279414

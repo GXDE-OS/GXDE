@@ -9,7 +9,7 @@
 ## 系统安装
 > 目前 ISO 支持 amd64、loong64  
 
-123盘：https://www.123pan.com/s/pDSKVv-4XIWv.html  
+
 huang111：https://pan.huang1111.cn/s/laonjFL  
 Sourceforge：https://sourceforge.net/projects/gxde-os/files  
 
