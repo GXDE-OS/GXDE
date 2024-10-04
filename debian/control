@@ -34,6 +34,28 @@ Description: GXDE New Desktop Environment Extra - Next
  .
  You can safety remove it after installed.
 
+Package: gxde-desktop-android
+Architecture: all
+Depends: 
+ ${misc:Depends},
+ gxde-daemon,
+ gxde-desktop,
+Recommends:
+ gxde-desktop-extra
+Conflicts:
+ plymouth-theme-gxde-logo,
+ linux-kernel-gxde-i386,
+ linux-kernel-oldstable-gxde-i386,
+ linux-kernel-gxde-amd64,
+ linux-kernel-oldstable-gxde-amd64,
+ linux-kernel-gxde-arm64,
+ linux-kernel-oldstable-gxde-arm64,
+ linux-kernel-gxde-mips64el,
+ linux-kernel-oldstable-gxde-mips64el,
+ linux-kernel-gxde-loong64,
+ linux-kernel-oldstable-gxde-loong64
+
+
 Package: gxde-desktop
 Architecture: all
 Depends: ${misc:Depends},
