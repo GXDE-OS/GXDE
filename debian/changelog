@@ -1,6 +1,6 @@
-gxde (2024.10.05) UNRELEASED; urgency=medium
+gxde (2024.10.06) UNRELEASED; urgency=medium
 
-  * Add package: gxde-requ
+  * Add package: gxde-boot-maker
 
 -- gfdgd_xi <3025613752@qq.com>  Fri, 04 Oct 2024 09:22:50 +0800
 

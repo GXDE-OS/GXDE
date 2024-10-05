@@ -28,7 +28,8 @@ Depends: ${misc:Depends},
  gxde-sendbylan,
  gxde-dict,
  gxde-system-assistant,
- spark-store | aptss 
+ spark-store | aptss,
+ gxde-boot-maker
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
