@@ -18,7 +18,7 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
 echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
 if [[ $(dpkg --print-architecture) == "loong64" ]]; then
-    echo "deb [trusted=true] http://mirror.sjtu.edu.cn/debian-ports unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
+    echo "deb [trusted=true] http://deb.debian.org/debian-ports unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 fi
 for i in {1..8};
 do
