@@ -1,14 +1,15 @@
-gxde (2024.10.04) UNRELEASED; urgency=medium
+gxde (2024.10.05) UNRELEASED; urgency=medium
 
-  * Add packages
+  * Add package: gxde-requ
 
 -- gfdgd_xi <3025613752@qq.com>  Fri, 04 Oct 2024 09:22:50 +0800
 
 gxde (2024.10.01) UNRELEASED; urgency=medium
 
   * fix 15.14 conponents dependencies
+  * 
 
- -- gfdgd_xi <3025613752@qq.com>  Fri, 04 Oct 2024 09:22:50 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sat, 05 Oct 2024 13:39:12 +0800
 
 gxde (2024.09.01) UNRELEASED; urgency=medium
 
