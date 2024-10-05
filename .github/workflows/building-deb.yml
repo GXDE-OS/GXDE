@@ -109,7 +109,7 @@ jobs:
           sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
 
   arm64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Clone Repository To Get Script
         run: |

@@ -40,8 +40,8 @@ sudo bash .github/workflows/pardus-chroot $bottlePath
 sudo chroot $bottlePath apt update
 sudo chroot $bottlePath apt full-upgrade -y
 sudo chroot $bottlePath apt install git -y
-sudo chroot $bottlePath git clone $3 --depth=1
-sudo chroot $bottlePath git clone $4 --depth=1
+sudo chroot $bottlePath git clone $3 #--depth=1
+sudo chroot $bottlePath git clone $4 #--depth=1
 sudo mv $bottlePath/$(basename $3)/.github/workflows/* $bottlePath/$(basename $4)/.github/workflows -v
 # 修改版本号
 #sudo sed -i "s/) UNRELEASED; urgency=medium/~$2) UNRELEASED; urgency=medium/g" $bottlePath/deep-wine-runner-qemu-system/debian/changelog
