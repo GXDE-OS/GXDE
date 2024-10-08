@@ -3,10 +3,13 @@
 
 **[中文](./Install.zh.md)**
 
+Multiline download(Recommended): https://repo-gxde.gfdgdxi.top/ISO/15.14/amd64/GXDE-OS_15.14_amd64.iso.torrent
 
 huang111: https://pan.huang1111.cn/s/laonjFL
 
 Sourceforge: https://sourceforge.net/projects/gxde-os/files
+
+
 
 **For ISO versions 15.13 and below, Legacy BIOS currently only supports installation using the Debian installer. Select "Advanced options" on the boot screen and then choose "Install." This issue will be resolved in version 15.14.**
 
