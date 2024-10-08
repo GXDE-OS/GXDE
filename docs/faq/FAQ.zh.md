@@ -16,7 +16,7 @@ A1: 加源安装GXDE
 
 加源安装方法
 
-下载deb并安装 https://pan.huang1111.cn/s/k2nRvuB
+下载deb并安装 https://repo-gxde.gfdgdxi.top/gxde-os/bixie/g/gxde-source/
 
 安装之后 
 

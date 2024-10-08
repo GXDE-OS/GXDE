@@ -16,7 +16,7 @@ A1: Install GXDE by adding repositories.
 
 Repository installation method:
 
-Download the deb file and install it from https://pan.huang1111.cn/s/k2nRvuB.
+Download the deb file and install it from https://repo-gxde.gfdgdxi.top/gxde-os/bixie/g/gxde-source/
 
 After installation, run:
 
