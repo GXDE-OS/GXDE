@@ -29,7 +29,9 @@ Depends: ${misc:Depends},
  gxde-dict,
  gxde-system-assistant,
  spark-store | aptss,
- gxde-boot-maker
+ gxde-boot-maker,
+ system-config-printer
+
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
