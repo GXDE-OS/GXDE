@@ -30,6 +30,7 @@ Depends: ${misc:Depends},
  gxde-system-assistant,
  spark-store | aptss,
  gxde-boot-maker,
+ deepin-clone,
  system-config-printer
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
@@ -79,10 +80,10 @@ Depends: ${misc:Depends},
  dde-kwin,
  deepin-screensaver,
  gxde-default-settings,
+ gxde-shell-tools
 Recommends:
  gxde-desktop-extra,
  file-roller,
- gksu,
  gxde-editor,
  gxde-system-monitor,
  pppoe,
@@ -131,8 +132,7 @@ Recommends:
  tela-grub2-themes,
  plymouth-theme-gxde-logo,
  fcitx5,
- fcitx5-table,
- gxde-shell-tools
+ fcitx5-table
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
