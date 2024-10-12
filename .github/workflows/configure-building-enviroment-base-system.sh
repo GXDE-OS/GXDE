@@ -38,6 +38,8 @@ fi
 sudo bash .github/workflows/pardus-chroot $bottlePath
 if [[ $6 == "backport" ]]; then
     sudo cp -rv .github/workflows/debian-backports.list $bottlePath/etc/apt/sources.list.d
+    sudo mkdir -p $bottlePath/etc/apt/preferences.d/
+    sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
 fi
 # 配置 git
 sudo chroot $bottlePath apt update
