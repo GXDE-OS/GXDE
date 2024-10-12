@@ -33,7 +33,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh i386 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY backport
+          bash .github/workflows/configure-building-enviroment-base-system.sh i386 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian/ backport
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -76,7 +76,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY backport
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian/ backport
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -119,7 +119,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY backport
+          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian/ backport
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -163,7 +163,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY backport
+          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian/ backport
 
       - name: Building ${{ GITHUB.repository }}
         run: |

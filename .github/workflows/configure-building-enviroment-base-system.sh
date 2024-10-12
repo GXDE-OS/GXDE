@@ -36,7 +36,7 @@ if [[ $? != 0 ]] && [[ $1 == loong64 ]]; then
     sudo mv squashfs-root $bottlePath -v
 fi
 sudo bash .github/workflows/pardus-chroot $bottlePath
-if [[ $5 == "backport" ]]; then
+if [[ $6 == "backport" ]]; then
     sudo cp -rv .github/workflows/debian-backports.list $bottlePath/etc/apt/sources.list.d
 fi
 # 配置 git
