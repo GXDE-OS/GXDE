@@ -3,7 +3,7 @@
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 
 
-**[中文](./README.zh.md)**
+**[中文](/README.zh.md)**
 
 
 ## Introduction
