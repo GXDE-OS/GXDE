@@ -85,7 +85,6 @@ Recommends:
  gxde-desktop-extra,
  file-roller,
  gxde-editor,
- gxde-system-monitor,
  pppoe,
  gvfs-fuse,
  smbclient,
