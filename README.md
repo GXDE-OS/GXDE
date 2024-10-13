@@ -31,8 +31,17 @@ Also, simply replace apt with aptss will  `apt` with `aptss` command can boost y
 
 Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Motivation
 
+### User Group
 
 QQ Group: 881201853
+
+
+
+## System Installation
+> Currently, ISO supports amd64, arm64
+
+
+Please check https://www.gxde.org/en/install/
 
 ![1](https://www.gxde.org/1.png)
 
@@ -43,14 +52,6 @@ QQ Group: 881201853
 ![4](https://www.gxde.org/4.png)
 
 ![5](https://www.gxde.org/5.png)
-
-
-## System Installation
-> Currently, ISO supports amd64, arm64
-
-
-Please check https://www.gxde.org/en/install/
-
 
 
 ## Other Projects
@@ -64,7 +65,7 @@ Deepin Community Live CD: https://gitee.com/gfdgd-xi/deepin-community-live-cd
 Heartfelt thanks to the [Project Spark/Spark App Store](https://gitee.com/spark-store-project/) for providing resources and services, allowing GXDE to achieve a better experience.  
 <img src="spark-store.svg" width="250" />
 
-You can use `aptss` instead of the `apt` command for multi-threaded download acceleration, enhancing download speed and stability.
+
 
 This project also utilizes the following listed projects, and heartfelt thanks to the developers and maintainers of these projects:  
 Music Plugin: https://github.com/SeptemberHX/dde-mpris2-plugin  

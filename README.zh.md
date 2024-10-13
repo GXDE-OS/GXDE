@@ -26,11 +26,28 @@ GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，�
 
 此外，只需将 `apt` 替换为 `aptss`，即可加速下载速度。
 
+### 沟通渠道
+
+QQ 群：881201853
+
 请点击右上角的Star，您的支持是我们最大的动力。
+
+
 
 ## 安装
 
 请查看 https://www.gxde.org/install/install
+
+![1](https://www.gxde.org/1.png)
+
+![2](https://www.gxde.org/2.png)
+
+![3](https://www.gxde.org/3.png)
+
+![4](https://www.gxde.org/4.png)
+
+![5](https://www.gxde.org/5.png)
+
 
 ## 其它项目
 Deepin：https://github.com/linuxdeepin/  
@@ -42,8 +59,6 @@ Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd
 ## 鸣谢
 由衷的感谢[星火计划/星火应用商店](https://gitee.com/spark-store-project/)提供的资源和服务，使 GXDE 可以获得更好的体验  
 <img src="spark-store.svg" width="250"  />   
-
-您可使用`aptss`替换`apt`命令以使用多线加速下载，提升下载速度和提升稳定性
 
 
 同时本项目也使用了以下列出的项目，对以下项目的开发者与维护者献出衷心的感谢：    

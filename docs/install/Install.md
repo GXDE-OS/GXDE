@@ -9,9 +9,7 @@ huang111: https://pan.huang1111.cn/s/laonjFL
 
 Sourceforge: https://sourceforge.net/projects/gxde-os/files
 
-
-
-**For ISO versions 15.13 and below, Legacy BIOS currently only supports installation using the Debian installer. Select "Advanced options" on the boot screen and then choose "Install." This issue will be resolved in version 15.14.**
+GXDE is not perfect，please confirm [FAQ](faq.md) before installation，containing Nvidia Graphic Card driver installation help. 
 
 ---
 
