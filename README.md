@@ -1,47 +1,58 @@
-![Logo](new-logo-long.png)
-<h1 align="center">GXDE</h1>
+
+![Logo](new-logo-long.png =150x)
 <hr>
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-<a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
+
 
 **[中文](./README.zh.md)**
 
-## System Installation
-> Currently, ISO supports amd64, loong64  
-
-
-huang111: https://pan.huang1111.cn/s/laonjFL  
-Sourceforge: https://sourceforge.net/projects/gxde-os/files  
-
-**For installation methods, please refer to: [Installation Guide](./docs/install/Install.md)**
-
-**GXDE is still not perfect; please ensure to check the [FAQ](./docs/faq/FAQ.md) before installation. Solution like Nvidia graphic card installing guide is included. **
-
-Users with Legacy boot should select the Debian installer in the advanced options during installation.
-
-Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Motivation
 
 ## Introduction
 
-For many users, Deepin 15 is still a classic version, but its underlying system is quite outdated (Debian 9) and cannot run new programs. To solve this issue, GXDE was created based on an updated foundation, allowing DDE 15 to return to people's attention.
+GXDE OS is an Debian based Linux distro featuring GXDE Desktop Environment. It offers an elegant, beautifu, light weight and out-of-the-box experience. 
 
-(GXDE stands for Gorgeous eXtended Deepin Environment)
+### Classic and Extended Deepin DE Experience 
+
+GXDE Desktop, rebirth from the deepin 15 era, not only brings back the classic experience but also introduces a range of extended components, experience enhancements, and bug fixes. It offers both familiarity and innovation, ensuring a smoother and more versatile user experience.
+
+GXDE stands for Gorgeous eXtended Deepin Environment
+
+### Various Components and Experiences
+
+GXDE OS integrates several community open-source projects, including a top bar, global menu, Spark App Store, AmberCE compatibility environment, and fantascene dynamic wallpapers. It supports the deepin Linyaps package too. 
+
+### One-Click App Installation without typing commands.
+
+[Spark APP Store](https://gitee.com/spark-store-project/) is built in with GXDE OS, enabling users to effortlessly discover and install essential applications without needing to use the command line. 
+
+Also, simply replace apt with aptss will  `apt` with `aptss` command can boost your download speed. 
+
+
+
+
+Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Motivation
+
 
 QQ Group: 881201853
 
-![sample-work.png](https://storage.deepin.org/thread/202408120026221621_sample-work.png)
+![1](https://www.gxde.org/1.png)
 
-![1.png](https://storage.deepin.org/thread/202408120029231283_1.png)
+![2](https://www.gxde.org/2.png)
 
-![2.png](https://storage.deepin.org/thread/202408120029234574_2.png)
+![3](https://www.gxde.org/3.png)
 
-![4.png](https://storage.deepin.org/thread/202408120026329613_4.png)
+![4](https://www.gxde.org/4.png)
 
-![3.png](https://storage.deepin.org/thread/202408120026315491_3.png)
+![5](https://www.gxde.org/5.png)
 
-![2.png](https://storage.deepin.org/thread/20240812002631555_2.png)
 
-![1.png](https://storage.deepin.org/thread/202408120026316394_1.png)
+## System Installation
+> Currently, ISO supports amd64, arm64
+
+
+Please check https://www.gxde.org/en/install/
+
+
 
 ## Other Projects
 Deepin: https://github.com/linuxdeepin/  

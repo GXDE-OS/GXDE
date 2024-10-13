@@ -1,49 +1,33 @@
-![Logo](new-logo-long.png)
-<h1 align="center">GXDE</h1>
+![Logo](new-logo-long.png =150x)
 <hr>
+
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-<a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
+
 
 **[English](./README.md)**
 
-## 系统安装
-> 目前 ISO 支持 amd64、loong64  
 
+## 简介
 
-huang111：https://pan.huang1111.cn/s/laonjFL  
-Sourceforge：https://sourceforge.net/projects/gxde-os/files  
+GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。它提供了优雅、美观、轻量化的开箱即用体验。
 
-**安装方法请参考：[安装指南](./docs/install/Install.zh.md)**
+### 经典且扩展的 deepin 桌面体验
 
-**GXDE 仍不完美，请在安装前务必确认 [常见问题](./docs/faq/FAQ.zh.md) 中的事项，包括了 Nvidia 显卡驱动安装指南等**
+GXDE 桌面环境源自 deepin 15 时代的重生，不仅带回了经典体验，还引入了多种多样的扩展组件、体验优化和问题修复。它兼具经典与创新，确保了更流畅且更丰富的用户体验。
 
-Legacy 启动的用户请在安装时选中 高级选项 中的Debian安装器进行安装
+GXDE (Gorgeous eXtended Deepin Environment)
 
-欢迎点右上角Star,您的肯定是我们的最大动力
+### 多种多样的组件和体验
 
-## 介绍
+GXDE OS 集成了多个社区的开源项目，包括顶栏、全局菜单、Spark 应用商店、AmberCE 兼容环境和 Fantascene 动态壁纸。它还支持 deepin Linyaps 包。
 
+### 一键安装应用程序，无需输入命令
 
-对于许多用户来讲，deepin 15 依旧是非常经典的版本，但是因为底层已经非常老旧（Debian 9）以至于不能运行新的程序，所以为了解决这个问题，基于更新底层的 GXDE 就出现了以便让 DDE 15 能重回人们的视野  
+GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，使用户能够轻松发现和安装所需应用程序，而无需使用命令行。
 
+此外，只需将 `apt` 替换为 `aptss`，即可加速下载速度。
 
-（GXDE 全称为 Gorgeous eXtended Deepin Environment）
-
-QQ 群：881201853
-
-![sample-work.png](https://storage.deepin.org/thread/202408120026221621_sample-work.png)
-
-![1.png](https://storage.deepin.org/thread/202408120029231283_1.png)
-
-![2.png](https://storage.deepin.org/thread/202408120029234574_2.png)
-
-![4.png](https://storage.deepin.org/thread/202408120026329613_4.png)
-
-![3.png](https://storage.deepin.org/thread/202408120026315491_3.png)
-
-![2.png](https://storage.deepin.org/thread/20240812002631555_2.png)
-
-![1.png](https://storage.deepin.org/thread/202408120026316394_1.png)
+请点击右上角的Star，您的支持是我们最大的动力。
 
 
 
