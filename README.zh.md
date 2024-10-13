@@ -1,4 +1,4 @@
-![Logo](new-logo-long.png =150x)
+<img src=new-logo-long.png width=150/>
 <hr>
 
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
