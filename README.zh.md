@@ -1,6 +1,5 @@
-<img src=new-logo-long.png width=150/>
+<center><img src=new-logo-long.png width=300/></center>
 <hr>
-
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 
 
