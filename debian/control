@@ -77,7 +77,7 @@ Depends: ${misc:Depends},
  eject,
  gxde-wallpapers,
  fonts-noto,
- dde-kwin,
+ gxde-kwin | dde-kwin,
  deepin-screensaver,
  gxde-default-settings,
  gxde-shell-tools
