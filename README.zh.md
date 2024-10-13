@@ -28,7 +28,9 @@ GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，�
 
 请点击右上角的Star，您的支持是我们最大的动力。
 
+## 安装
 
+请查看 https://www.gxde.org/install/install
 
 ## 其它项目
 Deepin：https://github.com/linuxdeepin/  
