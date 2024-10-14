@@ -1,6 +1,6 @@
 
 
-# Welcome to GXDE OS
+## Welcome to GXDE OS Community
 
 <center><img src=new-logo-long.png width=300/></center>
 <hr>
