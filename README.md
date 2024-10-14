@@ -1,8 +1,7 @@
 
 
-## Welcome to GXDE OS Community
+## Welcome to GXDE OS Community 
 
-<center><img src=new-logo-long.png width=300/></center>
 <hr>
 
 **[中文](/README.zh.md)**
