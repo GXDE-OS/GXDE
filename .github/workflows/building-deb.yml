@@ -65,7 +65,7 @@ jobs:
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
           sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
 
-  amd64:
+  amd64-Debian12:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository To Get Script
@@ -293,4 +293,48 @@ jobs:
             sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
           fi
 
-      
+  amd64-ubuntu24:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          git clone https://github.com/$GITHUB_REPOSITORY 
+          cd $GITHUB_REPOSITORY 
+          bash ../.github/workflows/configure-building-enviroment.sh
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          cd $GITHUB_REPOSITORY 
+          env GO111MODULE=off dpkg-buildpackage -b
+
+      - name: Remove Debug Package
+        run: |
+          rm -rfv *dbg*.deb
+
+      - name: Pack tar
+        run: |
+          sudo tar -cvf deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+  

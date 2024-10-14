@@ -15,8 +15,14 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 #    echo "deb-src http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/debian-sources.list
 #fi
 # 写入 GXDE 源
-echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
-echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+# 判断是否是 Ubuntu
+isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
+if [[ $isUbuntu -gt 1 ]]; then
+    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/hetao ./" >> /etc/apt/sources.list.d/gxde-os.list
+else
+    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+fi
 if [[ $(dpkg --print-architecture) == "loong64" ]]; then
     echo "deb [trusted=true] http://deb.debian.org/debian-ports unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 fi
