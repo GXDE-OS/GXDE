@@ -5,7 +5,7 @@
 **[中文](/README.zh.md)**
 
 GXDE OS is an Debian based Linux distro featuring GXDE Desktop Environment. It offers an elegant, beautifu, light weight and out-of-the-box experience. 
-<center><img src=new-logo-long.png width=300/></center>
+
 ### Classic and Extended Deepin DE Experience 
 
 GXDE Desktop, rebirth from the deepin 15 era, not only brings back the classic experience but also introduces a range of extended components, experience enhancements, and bug fixes. It offers both familiarity and innovation, ensuring a smoother and more versatile user experience.
@@ -28,6 +28,7 @@ Also, simply replace apt with aptss will  `apt` with `aptss` command can boost y
 Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Motivation
 
 ### User Group
+<center><img src=new-logo-long.png width=300/></center>
 
 QQ Group: 881201853
 
