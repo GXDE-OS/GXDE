@@ -63,7 +63,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
 
   amd64-Debian12:
     runs-on: ubuntu-latest
@@ -106,7 +106,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
 
   arm64:
     runs-on: ubuntu-24.04
@@ -149,7 +149,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
   
 
   mips64:
@@ -193,7 +193,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
 
   loong64:
     runs-on: ubuntu-24.04
@@ -238,7 +238,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
 
   
 
@@ -290,7 +290,7 @@ jobs:
           tarName=$(ls | grep .tar | head -n 1)
           if [[ $tarName != "" ]]; then
             sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH > /dev/null
-            sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+            sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
           fi
 
   amd64-ubuntu24:
@@ -305,12 +305,12 @@ jobs:
       - name: Configure Base System
         run: |
           git clone https://github.com/$GITHUB_REPOSITORY 
-          cd $GITHUB_REPOSITORY 
+          cd $(basename $GITHUB_REPOSITORY)
           bash ../.github/workflows/configure-building-enviroment.sh
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          cd $GITHUB_REPOSITORY 
+          cd $(basename $GITHUB_REPOSITORY)
           env GO111MODULE=off dpkg-buildpackage -b
 
       - name: Remove Debug Package
@@ -336,5 +336,5 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM hetao $UPATH/$tarName > /dev/null
   
