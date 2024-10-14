@@ -1,12 +1,8 @@
-<center><img src=new-logo-long.png width=300/></center>
-<hr>
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 
+
+## Welcome to GXDE OS Community 
 
 **[中文](/README.zh.md)**
-
-
-## Introduction
 
 GXDE OS is an Debian based Linux distro featuring GXDE Desktop Environment. It offers an elegant, beautifu, light weight and out-of-the-box experience. 
 
@@ -32,6 +28,7 @@ Also, simply replace apt with aptss will  `apt` with `aptss` command can boost y
 Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Motivation
 
 ### User Group
+<center><img src=new-logo-long.png width=300/></center>
 
 QQ Group: 881201853
 
