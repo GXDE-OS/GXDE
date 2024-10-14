@@ -1,12 +1,11 @@
+
+
+# Welcome to GXDE OS
+
 <center><img src=new-logo-long.png width=300/></center>
 <hr>
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-
 
 **[中文](/README.zh.md)**
-
-
-## Introduction
 
 GXDE OS is an Debian based Linux distro featuring GXDE Desktop Environment. It offers an elegant, beautifu, light weight and out-of-the-box experience. 
 
