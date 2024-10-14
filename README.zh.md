@@ -1,50 +1,52 @@
-![Logo](new-logo-long.png)
-<h1 align="center">GXDE</h1>
+<center><img src=new-logo-long.png width=300/></center>
 <hr>
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-<a href='https://gitee.com/GXDE-OS/GXDE/members'><img src='https://gitee.com/GXDE-OS/GXDE/badge/fork.svg?theme=dark' alt='fork'></img></a>  
-
-**[English](./README.md)**
-
-## 系统安装
-> 目前 ISO 支持 amd64、loong64  
 
 
-huang111：https://pan.huang1111.cn/s/laonjFL  
-Sourceforge：https://sourceforge.net/projects/gxde-os/files  
-
-**安装方法请参考：[安装指南](./docs/install/Install.zh.md)**
-
-**GXDE 仍不完美，请在安装前务必确认 [常见问题](./docs/faq/FAQ.zh.md) 中的事项，包括了 Nvidia 显卡驱动安装指南等**
-
-Legacy 启动的用户请在安装时选中 高级选项 中的Debian安装器进行安装
-
-欢迎点右上角Star,您的肯定是我们的最大动力
-
-## 介绍
+**[English](/README.md)**
 
 
-对于许多用户来讲，deepin 15 依旧是非常经典的版本，但是因为底层已经非常老旧（Debian 9）以至于不能运行新的程序，所以为了解决这个问题，基于更新底层的 GXDE 就出现了以便让 DDE 15 能重回人们的视野  
+## 简介
 
+GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。它提供了优雅、美观、轻量化的开箱即用体验。
 
-（GXDE 全称为 Gorgeous eXtended Deepin Environment）
+### 经典且扩展的 deepin 桌面体验
+
+GXDE 桌面环境源自 deepin 15 时代的重生，不仅带回了经典体验，还引入了多种多样的扩展组件、体验优化和问题修复。它兼具经典与创新，确保了更流畅且更丰富的用户体验。
+
+GXDE (Gorgeous eXtended Deepin Environment)
+
+### 多种多样的组件和体验
+
+GXDE OS 集成了多个社区的开源项目，包括顶栏、全局菜单、Spark 应用商店、AmberCE 兼容环境和 Fantascene 动态壁纸。它还支持 deepin Linyaps 包。
+
+### 一键安装应用程序，无需输入命令
+
+GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，使用户能够轻松发现和安装所需应用程序，而无需使用命令行。
+
+此外，只需将 `apt` 替换为 `aptss`，即可加速下载速度。
+
+### 沟通渠道
 
 QQ 群：881201853
 
-![sample-work.png](https://storage.deepin.org/thread/202408120026221621_sample-work.png)
+请点击右上角的Star，您的支持是我们最大的动力。
 
-![1.png](https://storage.deepin.org/thread/202408120029231283_1.png)
 
-![2.png](https://storage.deepin.org/thread/202408120029234574_2.png)
 
-![4.png](https://storage.deepin.org/thread/202408120026329613_4.png)
+## 安装
 
-![3.png](https://storage.deepin.org/thread/202408120026315491_3.png)
+请查看 https://www.gxde.org/install/install
 
-![2.png](https://storage.deepin.org/thread/20240812002631555_2.png)
+![1](https://www.gxde.org/1.png)
 
-![1.png](https://storage.deepin.org/thread/202408120026316394_1.png)
+![2](https://www.gxde.org/2.png)
 
+![3](https://www.gxde.org/3.png)
+
+![4](https://www.gxde.org/4.png)
+
+![5](https://www.gxde.org/5.png)
 
 
 ## 其它项目
@@ -57,8 +59,6 @@ Deepin Community Live CD：https://gitee.com/gfdgd-xi/deepin-community-live-cd
 ## 鸣谢
 由衷的感谢[星火计划/星火应用商店](https://gitee.com/spark-store-project/)提供的资源和服务，使 GXDE 可以获得更好的体验  
 <img src="spark-store.svg" width="250"  />   
-
-您可使用`aptss`替换`apt`命令以使用多线加速下载，提升下载速度和提升稳定性
 
 
 同时本项目也使用了以下列出的项目，对以下项目的开发者与维护者献出衷心的感谢：    

@@ -31,7 +31,8 @@ Depends: ${misc:Depends},
  spark-store | aptss,
  gxde-boot-maker,
  deepin-clone,
- system-config-printer
+ system-config-printer,
+ deepin-system-monitor
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
@@ -85,7 +86,6 @@ Recommends:
  gxde-desktop-extra,
  file-roller,
  gxde-editor,
- gxde-system-monitor,
  pppoe,
  gvfs-fuse,
  smbclient,
