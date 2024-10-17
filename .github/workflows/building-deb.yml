@@ -110,7 +110,7 @@ jobs:
 
   arm64:
     #runs-on: ubuntu-24.04
-    runs-on: phytium-arm64
+    runs-on: self-hosted
     steps:
       - name: Clone Repository To Get Script
         run: |
