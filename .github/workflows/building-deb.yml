@@ -109,7 +109,8 @@ jobs:
           sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
 
   arm64:
-    runs-on: ubuntu-24.04
+    #runs-on: ubuntu-24.04
+    runs-on: phytium-arm64
     steps:
       - name: Clone Repository To Get Script
         run: |
