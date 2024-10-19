@@ -1,9 +1,10 @@
-gxde (2024.10.14) UNRELEASED; urgency=medium
+gxde (2024.10.19) UNRELEASED; urgency=medium
 
   * Add package: gxde-boot-maker
   * Add package : system-config-printer
   * Add package : deepin-clone
   * Add package: deepin-system-monitor
+  * Change package: deepin-movie --> gxde-movie
 
 -- shenmo <shenmo@spark-app.store>  Fri, 04 Oct 2024 09:22:50 +0800
 
