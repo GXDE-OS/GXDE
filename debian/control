@@ -30,7 +30,7 @@ Depends: ${misc:Depends},
  gxde-boot-maker,
  deepin-clone,
  system-config-printer,
- deepin-system-monitor，
+ deepin-system-monitor,
  gxde-downloader
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
