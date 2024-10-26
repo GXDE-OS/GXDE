@@ -8,7 +8,7 @@ Homepage: http://www.gfdgdxi.top
 
 Package: gxde-desktop-extra
 Architecture: all
-Depends: ${misc:Depends},
+Recommends: ${misc:Depends},
  gxde-voice-recorder,
  gxde-calculator,
  gxde-terminal,
