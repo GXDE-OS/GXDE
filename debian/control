@@ -119,7 +119,7 @@ Recommends:
  miraclecast,
  x-display-manager,
  gxde-image-viewer,
- dde-calendar,
+ gxde-calendar,
  gxde-calculator,
  gxde-voice-recorder,
  deepin-screen-recorder,

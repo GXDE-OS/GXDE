@@ -1,3 +1,9 @@
+gxde (2024.10.26) UNRELEASED; urgency=medium
+
+  * Change package: dde-calendar --> gxde-calendar
+
+ -- gfdgd_xi <3025613752@qq.com>  Sat, 26 Oct 2024 15:05:04 +0800
+
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
   * Add package: gxde-boot-maker
@@ -8,13 +14,6 @@ gxde (2024.10.20) UNRELEASED; urgency=medium
   * Change package: gxde-download --> gxde-downloader
 
 -- shenmo <shenmo@spark-app.store>  Fri, 04 Oct 2024 09:22:50 +0800
-
-gxde (2024.10.01) UNRELEASED; urgency=medium
-
-  * fix 15.14 conponents dependencies
-  * 
-
- -- gfdgd_xi <3025613752@qq.com>  Sat, 05 Oct 2024 13:39:12 +0800
 
 gxde (2024.09.01) UNRELEASED; urgency=medium
 
