@@ -24,7 +24,7 @@ else
     echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
 if [[ $(dpkg --print-architecture) == "loong64" ]]; then
-    echo "deb [trusted=true] http://debian-loong64.gxde.org/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
+    echo "deb [trusted=true] https://packages.gxde.org/debian-loong64/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 fi
 for i in {1..8};
 do
