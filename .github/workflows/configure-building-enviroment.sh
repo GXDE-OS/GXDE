@@ -26,9 +26,10 @@ fi
 if [[ $(dpkg --print-architecture) == "loong64" ]]; then
     echo "deb [trusted=true] https://packages.gxde.org/debian-loong64/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 fi
+apt install debian-ports-archive-keyring debian-archive-keyring -y
 for i in {1..8};
 do
-    apt update -y
+    apt update -o Acquire::Check-Valid-Until=false -y
     if [[ $? == 0 ]]; then
         break
     fi
