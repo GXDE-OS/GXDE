@@ -1,8 +1,9 @@
-gxde (2024.10.26) UNRELEASED; urgency=medium
+gxde (2024.11.10) UNRELEASED; urgency=medium
 
   * Change package: dde-calendar --> gxde-calendar
+  * Add package: gparted
 
- -- gfdgd_xi <3025613752@qq.com>  Sat, 26 Oct 2024 15:05:04 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 10 Nov 2024 11:14:38 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 

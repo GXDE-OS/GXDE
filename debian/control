@@ -31,7 +31,8 @@ Recommends: ${misc:Depends},
  deepin-clone,
  system-config-printer,
  deepin-system-monitor,
- gxde-downloader
+ gxde-downloader,
+ gparted
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
