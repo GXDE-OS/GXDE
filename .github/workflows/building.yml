@@ -1,4 +1,4 @@
-name: Building Testing
+name: Building Program
 run-name: Building ${{ GITHUB.REPOSITORY }}
 
 on:
