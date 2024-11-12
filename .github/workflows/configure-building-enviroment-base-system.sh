@@ -27,10 +27,10 @@ else
         useDebianPort
     fi
 fi
-sudo debootstrap --include=git,cmake,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
-if [[ $? != 0 ]]; then
-    sudo debootstrap --foreign --include=git,cmake,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5 
-fi
+sudo debootstrap --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+#if [[ $? != 0 ]]; then
+#    sudo debootstrap --foreign --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5 
+#fi
 if [[ $? != 0 ]] && [[ $1 == loong64 ]]; then
     sudo apt install squashfs-tools git -y
     wget https://github.com/GXDE-OS/GXDE/releases/download/resources/debian-base-loong64.squashfs
