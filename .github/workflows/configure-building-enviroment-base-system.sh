@@ -42,6 +42,7 @@ if [[ $6 == "backport" ]]; then
     sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
 fi
 # 配置 git
+#echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" | sudo tee $bottlePath/etc/apt/sources.list.d/debian-unreleased.list
 sudo chroot $bottlePath apt update
 sudo chroot $bottlePath apt full-upgrade -y
 sudo chroot $bottlePath apt install git -y

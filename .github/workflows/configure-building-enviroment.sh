@@ -23,9 +23,9 @@ else
     echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
     echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
-if [[ $(dpkg --print-architecture) == "loong64" ]]; then
-    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
-fi
+#if [[ $(dpkg --print-architecture) == "loong64" ]]; then
+#    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
+#fi
 apt install debian-ports-archive-keyring debian-archive-keyring -y
 for i in {1..8};
 do

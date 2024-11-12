@@ -209,8 +209,8 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
-          #bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
+          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
+          #bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
 
       - name: Building ${{ GITHUB.repository }}
         run: |
