@@ -36,7 +36,7 @@ do
     sleep 1
 done
 apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
-neofetch
+#neofetch
 #if [[ `arch` != "x86_64" ]]; then
 #    apt source qemu
 #    cd qemu-*/
