@@ -32,7 +32,9 @@ Recommends: ${misc:Depends},
  system-config-printer,
  deepin-system-monitor,
  gxde-downloader,
- gparted
+ gparted,
+ fantascene-dynamic-wallpaper,
+ x11vnc,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
@@ -70,6 +72,9 @@ Conflicts:
  linux-kernel-oldstable-gxde-mips64el,
  linux-kernel-gxde-loong64,
  linux-kernel-oldstable-gxde-loong64,
+ plymouth,
+ tela-grub2-themes,
+ plymouth-theme-gxde-logo,
 Description: GXDE New Desktop Environment For PRoot - Next
  This is a meta package depends GXDE New Desktop Envrionment in Android PRoot.
  .
@@ -144,7 +149,9 @@ Recommends:
  tela-grub2-themes,
  plymouth-theme-gxde-logo,
  fcitx5,
- fcitx5-table
+ fcitx5-table,
+ fantascene-dynamic-wallpaper,
+ x11vnc,
 Conflicts:
  dde-control-center(<< 2.90.5),
  deepin-desktop-environment-desktop,
