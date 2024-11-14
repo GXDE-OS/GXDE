@@ -44,8 +44,20 @@ Depends:
  ${misc:Depends},
  gxde-daemon,
  gxde-desktop,
-Recommends:
- gxde-desktop-extra
+ gxde-calculator, 
+ gxde-terminal, 
+ gxde-deb-installer, 
+ gxde-editor, 
+ gxde-image-viewer, 
+ gxde-ocr, 
+ gxde-music, 
+ gxde-font-installer, 
+ gxde-movie, 
+ gxde-quick-hash, 
+ spark-store | aptss, 
+ deepin-system-monitor,
+ dde-control-center,
+ dde-file-manager,
 Conflicts:
  plymouth-theme-gxde-logo,
  linux-kernel-gxde-i386,
