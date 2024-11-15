@@ -26,6 +26,7 @@ fi
 #if [[ $(dpkg --print-architecture) == "loong64" ]]; then
 #    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 #fi
+apt install -f -y
 apt install debian-ports-archive-keyring debian-archive-keyring -y
 for i in {1..8};
 do
