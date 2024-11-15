@@ -18,10 +18,10 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 # 判断是否是 Ubuntu
 isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
 if [[ $isUbuntu -gt 1 ]]; then
-    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/hetao ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/hetao ./" >> /etc/apt/sources.list.d/gxde-os.list
 else
-    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
-    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
 #if [[ $(dpkg --print-architecture) == "loong64" ]]; then
 #    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
