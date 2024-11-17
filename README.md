@@ -30,7 +30,8 @@ Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Mo
 ### User Group
 <center><img src=new-logo-long.png width=300/></center>
 
-QQ Group: 881201853
+QQ Group: 881201853  
+Discord: https://discord.gg/t5Uf2xYpvA  
 
 
 
