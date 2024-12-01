@@ -98,10 +98,10 @@ Depends: ${misc:Depends},
  gxde-kwin | dde-kwin,
  deepin-screensaver,
  gxde-default-settings,
- gxde-shell-tools
+ gxde-shell-tools,
+ gxde-compressor,
 Recommends:
  gxde-desktop-extra,
- file-roller,
  gxde-editor,
  pppoe,
  gvfs-fuse,

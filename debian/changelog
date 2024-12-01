@@ -1,8 +1,9 @@
-gxde (2024.11.14gxde1) UNRELEASED; urgency=medium
+gxde (2024.12.01) UNRELEASED; urgency=medium
 
   * Change package: dde-calendar --> gxde-calendar
   * Add package: gparted
   * Change gxde-desktop depends, gxde-desktop-extra, gxde-desktop-android depends and conflicts
+  * Replace file-roller by gxde-compressor 
 
  -- gfdgd_xi <3025613752@qq.com>  Thu, 14 Nov 2024 22:23:21 +0800
 
