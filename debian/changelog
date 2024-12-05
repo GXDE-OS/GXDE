@@ -1,4 +1,4 @@
-gxde (2024.12.05) UNRELEASED; urgency=medium
+gxde (2024.12.05gxde1) UNRELEASED; urgency=medium
 
   * Change package: dde-calendar --> gxde-calendar
   * Add package: gparted

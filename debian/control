@@ -100,6 +100,7 @@ Depends: ${misc:Depends},
  gxde-default-settings,
  gxde-shell-tools,
  gxde-compressor,
+ gxde-introduction,
 Recommends:
  gxde-desktop-extra,
  gxde-editor,
