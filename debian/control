@@ -10,7 +10,7 @@ Package: gxde-desktop-extra
 Architecture: all
 Recommends: ${misc:Depends},
  gxde-voice-recorder,
- gxde-calculator,
+ deepin-calculator,
  gxde-terminal,
  gxde-deb-installer,
  gxde-editor,
