@@ -1,0 +1,342 @@
+name: Building GXDE Testing Package
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  i386:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh i386 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+
+  amd64-Debian12:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+
+  arm64:
+    runs-on: ubuntu-24.04
+    #runs-on: self-hosted
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+  
+
+  mips64:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+
+  loong64:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          #apt update
+          #apt install sudo git -y
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
+          #bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+
+  
+
+  riscv64:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          #apt update
+          #apt install sudo git -y
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh riscv64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY 
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          set +e
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh 
+
+      - name: Remove Debug Package
+        run: |
+          set +e
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb 
+
+      - name: Pack tar
+        run: |
+          set +e
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          set +e
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          if [[ $tarName != "" ]]; then
+            sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH > /dev/null
+            sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu $UPATH/$tarName > /dev/null
+          fi
+
+  amd64-ubuntu24:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          git clone https://github.com/$GITHUB_REPOSITORY 
+          cd $(basename $GITHUB_REPOSITORY)
+          sudo bash ../.github/workflows/configure-building-enviroment.sh
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          cd $(basename $GITHUB_REPOSITORY)
+          env GO111MODULE=off bash build-deb.sh
+
+      - name: Remove Debug Package
+        run: |
+          rm -rfv *dbg*.deb
+
+      - name: Pack tar
+        run: |
+          sudo tar -cvf deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM hetao $UPATH/$tarName > /dev/null
+  
