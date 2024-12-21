@@ -1,0 +1,152 @@
+name: Building GXDE Package (Other distro)
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  i386-Debian10:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh i386 buster $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+
+      - name: Remove Debug Package
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb.tar *.deb 
+
+      - name: upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-debian-buster-i386
+          path: /home/runner/deb.tar
+
+  amd64-Debian10:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 buster $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+
+      - name: Remove Debug Package
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb.tar *.deb 
+
+      - name: upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-debian-buster-amd64
+          path: /home/runner/deb.tar
+
+  arm64-debian10:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 buster $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+
+      - name: Remove Debug Package
+        run: |
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb.tar *.deb 
+
+      - name: upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-debian-buster-i386
+          path: /home/runner/deb.tar
+  
+
+  mips64-debian10:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el buster $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+
+      - name: Remove Debug Package
+        run: |
+          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb.tar *.deb 
+
+      - name: upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-debian-buster-mips64el
+          path: /home/runner/deb.tar
