@@ -44,7 +44,7 @@ jobs:
 
       - name: Remove Debug Package
         run: |
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
 
       - name: Pack tar
         run: |
@@ -93,7 +93,7 @@ jobs:
       - name: Remove Debug Package
         run: |
           set +e
-          env env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb 
+          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb 
 
       - name: Pack tar
         run: |
