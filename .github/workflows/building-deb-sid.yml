@@ -44,7 +44,10 @@ jobs:
 
       - name: Remove Debug Package
         run: |
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
 
       - name: Pack tar
         run: |
@@ -93,7 +96,10 @@ jobs:
       - name: Remove Debug Package
         run: |
           set +e
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb 
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb 
 
       - name: Pack tar
         run: |
