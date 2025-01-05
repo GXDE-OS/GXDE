@@ -12,7 +12,8 @@ dataHeaders = {
 pullUrl = "https://gitee.com/GXDE-OS/"
 pushUrl = [
     "https://@USER@:@PASS@@github.com/GXDE-OS/",
-    "https://@USER@:@PASS@@gitcode.com/GXDE-OS/"
+    "https://@USER@:@PASS@@gitcode.com/GXDE-OS/",
+    "https://@USER@:@PASS@@atomgit.com/GXDE-OS/"
 ]
 
 if (len(sys.argv) < 1 + len(pushUrl) * 2):
