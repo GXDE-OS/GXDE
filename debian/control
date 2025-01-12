@@ -35,6 +35,8 @@ Recommends: ${misc:Depends},
  gparted,
  fantascene-dynamic-wallpaper,
  x11vnc,
+ com.github.minesweep,
+ 2048-qt,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
