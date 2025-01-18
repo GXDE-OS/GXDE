@@ -1,4 +1,4 @@
-name: Building GXDE Package (Debian Backport)
+name: Building GXDE Backport Package
 run-name: Building ${{ GITHUB.REPOSITORY }}
 
 on:
@@ -38,10 +38,14 @@ jobs:
       - name: Building ${{ GITHUB.repository }}
         run: |
           env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          cp $BOTTLEPATH/*.deb . -rv
 
       - name: Remove Debug Package
         run: |
-          #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
 
       - name: Pack tar
         run: |
@@ -63,7 +67,17 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu-bpo $UPATH/$tarName > /dev/null
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOCKEN_GITHUB }}
+        with:
+          files: |
+            *.deb
+          generate_release_notes: true
 
   amd64:
     runs-on: ubuntu-latest
@@ -76,15 +90,19 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian/ backport
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY  https://deb.debian.org/debian/ backport
 
       - name: Building ${{ GITHUB.repository }}
         run: |
           env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          cp $BOTTLEPATH/*.deb . -rv
 
       - name: Remove Debug Package
         run: |
-          #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
 
       - name: Pack tar
         run: |
@@ -106,10 +124,21 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu-bpo $UPATH/$tarName > /dev/null
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOCKEN_GITHUB }}
+        with:
+          files: |
+            *.deb
+          generate_release_notes: true
 
   arm64:
     runs-on: ubuntu-24.04
+    #runs-on: self-hosted
     steps:
       - name: Clone Repository To Get Script
         run: |
@@ -124,10 +153,14 @@ jobs:
       - name: Building ${{ GITHUB.repository }}
         run: |
           env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          cp $BOTTLEPATH/*.deb . -rv
 
       - name: Remove Debug Package
         run: |
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
 
       - name: Pack tar
         run: |
@@ -149,8 +182,17 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu-bpo $UPATH/$tarName > /dev/null
   
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOCKEN_GITHUB }}
+        with:
+          files: |
+            *.deb
+          generate_release_notes: true
 
   mips64:
     runs-on: ubuntu-24.04
@@ -168,10 +210,14 @@ jobs:
       - name: Building ${{ GITHUB.repository }}
         run: |
           env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          cp $BOTTLEPATH/*.deb . -rv
 
       - name: Remove Debug Package
         run: |
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
 
       - name: Pack tar
         run: |
@@ -193,105 +239,14 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM tianlu-bpo $UPATH/$tarName > /dev/null
 
-  loong64:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Clone Repository To Get Script
-        run: |
-          #apt update
-          #apt install sudo git -y
-          git clone $REPOSITORY --depth=1
-          mv $(basename $REPOSITORY)/* . -v
-          mv $(basename $REPOSITORY)/.* . -v | true
-
-      - name: Configure Base System
-        run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://deb.debian.org/debian-ports/
-          #bash .github/workflows/configure-building-enviroment-base-system.sh loong64 unstable $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
-
-      - name: Building ${{ GITHUB.repository }}
-        run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
-
-      - name: Remove Debug Package
-        run: |
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb
-
-      - name: Pack tar
-        run: |
-          cd $BOTTLEPATH
-          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
-
-      - name: Push
-        env: 
-          UPASSWD: ${{ secrets.PASSWD }}
-          UUSERS: ${{ secrets.USERS }}
-          UHOST: ${{ secrets.HOST }}
-          UPATH: ${{ secrets.UPATH }}
-          UPROGRAM: ${{ secrets.UPROGRAM }}
-          UPORT: ${{ secrets.UPORT }}
-        run: |
-          sudo apt update
-          sudo apt install sshpass -y
-          mkdir -p ~/.ssh/
-          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
-          tarName=$(ls | grep .tar | head -n 1)
-          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
-
-  
-
-  riscv64:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Clone Repository To Get Script
-        run: |
-          #apt update
-          #apt install sudo git -y
-          git clone $REPOSITORY --depth=1
-          mv $(basename $REPOSITORY)/* . -v
-          mv $(basename $REPOSITORY)/.* . -v | true
-
-      - name: Configure Base System
-        run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh riscv64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY 
-
-      - name: Building ${{ GITHUB.repository }}
-        run: |
-          set +e
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b 
-
-      - name: Remove Debug Package
-        run: |
-          set +e
-          env #env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh rm -rfv ../*dbg*.deb 
-
-      - name: Pack tar
-        run: |
-          set +e
-          cd $BOTTLEPATH
-          sudo tar -cvf ../deb-$(date +%s).tar *.deb
-
-      - name: Push
-        env: 
-          UPASSWD: ${{ secrets.PASSWD }}
-          UUSERS: ${{ secrets.USERS }}
-          UHOST: ${{ secrets.HOST }}
-          UPATH: ${{ secrets.UPATH }}
-          UPROGRAM: ${{ secrets.UPROGRAM }}
-          UPORT: ${{ secrets.UPORT }}
-        run: |
-          set +e
-          sudo apt update
-          sudo apt install sshpass -y
-          mkdir -p ~/.ssh/
-          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
-          tarName=$(ls | grep .tar | head -n 1)
-          if [[ $tarName != "" ]]; then
-            sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH > /dev/null
-            sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM $UPATH/$tarName > /dev/null
-          fi
-
-      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOCKEN_GITHUB }}
+        with:
+          files: |
+            *.deb
+          generate_release_notes: true
