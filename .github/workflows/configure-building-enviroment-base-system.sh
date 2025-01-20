@@ -15,6 +15,9 @@ function useDebianPort() {
     sudo apt install debian-ports-archive-keyring -y
     sudo cp /usr/share/keyrings/debian-archive-keyring.gpg /usr/share/keyrings/debian-ports-archive-keyring.gpg -v
 }
+function useLoongnix() {
+    sudo cp .github/workflows/loongnix /usr/share/debootstrap/scripts/ -v
+}
 
 sudo apt update
 sudo apt install debootstrap binfmt-support qemu-user qemu-user-static git -y
@@ -23,15 +26,17 @@ bottlePath=./system-bottle
 if [[ $2 == "beige" ]]; then
     getd23debootstrap
 else
-    if [[ $1 == "loong64" ]]; then
+    if [[ $1 == "loong64" ]] && [[ $2 != "loongnix" ]]; then
         useDebianPort
+    else
+        useLoongnix
     fi
 fi
-sudo debootstrap --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
 #if [[ $? != 0 ]]; then
 #    sudo debootstrap --foreign --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5 
 #fi
-if [[ $? != 0 ]] && [[ $1 == loong64 ]]; then
+if [[ $? != 0 ]] && [[ $1 == loong64 ]] && [[ $2 != "loongnix" ]]; then
     sudo apt install squashfs-tools git -y
     wget https://github.com/GXDE-OS/GXDE/releases/download/resources/debian-base-loong64.squashfs
     sudo unsquashfs debian-base-loong64.squashfs

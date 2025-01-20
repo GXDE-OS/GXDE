@@ -251,7 +251,7 @@ jobs:
             *.deb
           generate_release_notes: true
 
-  loong64:
+  loong64-debian-port:
     runs-on: ubuntu-24.04
     steps:
       - name: Clone Repository To Get Script
@@ -310,6 +310,55 @@ jobs:
           files: |
             *.deb
           generate_release_notes: true
+
+  loong64-loongnix:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          #apt update
+          #apt install sudo git -y
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 loongnix $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://pkg.loongnix.cn/loongnix/25
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          cp $BOTTLEPATH/*.deb . -rv
+
+      - name: Remove Debug Package
+        run: |
+          cd $BOTTLEPATH
+          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          removeDeb=$(bash remove-deb.sh)
+          sudo rm -rf $removeDeb
+
+      - name: Pack tar
+        run: |
+          cd $BOTTLEPATH
+          sudo tar -cvf ../deb-$(date +%s).tar *.deb 
+
+      - name: Push
+        env: 
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM: ${{ secrets.UPROGRAM }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep .tar | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM maolong $UPATH/$tarName > /dev/null
 
   riscv64:
     runs-on: ubuntu-24.04
