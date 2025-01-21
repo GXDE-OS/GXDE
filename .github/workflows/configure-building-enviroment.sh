@@ -16,9 +16,9 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 #fi
 # 写入 GXDE 源
 # 判断是否是 Ubuntu
-isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
-if [[ $isUbuntu -gt 1 ]]; then
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/hetao ./" >> /etc/apt/sources.list.d/gxde-os.list
+#isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
+if [[ $1 == "erliang" ]]; then
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/erliang ./" >> /etc/apt/sources.list.d/gxde-os.list
 else
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list

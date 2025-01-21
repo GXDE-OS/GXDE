@@ -358,7 +358,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM maolong $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM erliang $UPATH/$tarName > /dev/null
 
   riscv64:
     runs-on: ubuntu-24.04
