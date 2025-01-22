@@ -20,7 +20,7 @@ function useLoongnix() {
 }
 
 sudo apt update
-sudo apt install debootstrap binfmt-support qemu-user qemu-user-static git -y
+sudo apt install debootstrap rename binfmt-support qemu-user qemu-user-static git -y
 ls /usr/bin/qemu-*
 bottlePath=./system-bottle
 if [[ $2 == "beige" ]]; then
