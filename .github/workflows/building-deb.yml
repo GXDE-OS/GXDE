@@ -406,9 +406,9 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=erliang GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=meimei GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
-          sudo rename 's/\.deb$/_erliang.deb/' *.deb
+          sudo rename 's/\.deb$/_meimei.deb/' *.deb
 
       - name: Remove Debug Package
         run: |
@@ -437,7 +437,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM erliang $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM meimei $UPATH/$tarName > /dev/null
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
