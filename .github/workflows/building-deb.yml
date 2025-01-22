@@ -37,7 +37,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -96,7 +96,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -156,7 +156,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -215,7 +215,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -277,7 +277,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -339,7 +339,7 @@ jobs:
       - name: Building ${{ GITHUB.repository }}
         run: |
           set +e
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv 
           sudo rename 's/\.deb$/_tianlu.deb/' *.deb
 
@@ -406,7 +406,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off dpkg-buildpackage -b
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=erliang GO111MODULE=off dpkg-buildpackage -b
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_erliang.deb/' *.deb
 

@@ -37,7 +37,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh
 
       - name: Remove Debug Package
         run: |
@@ -80,7 +80,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh
 
       - name: Remove Debug Package
         run: |
@@ -124,7 +124,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh
 
       - name: Remove Debug Package
         run: |
@@ -168,7 +168,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh
 
       - name: Remove Debug Package
         run: |
@@ -214,7 +214,7 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh
 
       - name: Remove Debug Package
         run: |
@@ -262,7 +262,7 @@ jobs:
       - name: Building ${{ GITHUB.repository }}
         run: |
           set +e
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GO111MODULE=off bash build-deb.sh 
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh 
 
       - name: Remove Debug Package
         run: |
