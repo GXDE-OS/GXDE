@@ -17,8 +17,8 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 # 写入 GXDE 源
 # 判断是否是 Ubuntu
 #isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
-if [[ $1 == "erliang" ]]; then
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/erliang ./" >> /etc/apt/sources.list.d/gxde-os.list
+if [[ $1 == "meimei" ]]; then
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/meimei ./" >> /etc/apt/sources.list.d/gxde-os.list
 else
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
@@ -53,6 +53,8 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
 #apt build-dep qemu -y
 # 如果是 Debian10 就需要安装 Python3 的依赖
 #apt build-dep python3.7 -y
+
+    
 for i in {1..5};
 do
     apt build-dep . -y

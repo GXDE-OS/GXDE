@@ -144,7 +144,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -199,7 +199,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh mips64el bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -256,8 +256,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
-          #bash .github/workflows/configure-building-enviroment-base-system.sh loong64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://deb.debian.org/debian-ports/
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 testing $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -314,7 +313,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh riscv64 sid $REPOSITORY https://github.com/$GITHUB_REPOSITORY 
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 testing $REPOSITORY https://github.com/$GITHUB_REPOSITORY 
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -377,11 +376,11 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 loongnix $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://pkg.loongnix.cn/loongnix/25
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 testing $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=bixie GO111MODULE=off bash build-deb.sh loong64
+          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=meimei GO111MODULE=off bash build-deb.sh loong64
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_meimei.deb/' *.deb
 
