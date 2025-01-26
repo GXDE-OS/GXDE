@@ -37,6 +37,7 @@ Recommends: ${misc:Depends},
  x11vnc,
  com.github.minesweep,
  2048-qt,
+ papirus-icon-theme,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .

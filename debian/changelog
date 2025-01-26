@@ -1,4 +1,4 @@
-gxde (2025.01.12) UNRELEASED; urgency=medium
+gxde (2025.01.26) UNRELEASED; urgency=medium
 
   * Change package: dde-calendar --> gxde-calendar
   * Add package: gparted
@@ -8,8 +8,9 @@ gxde (2025.01.12) UNRELEASED; urgency=medium
   * Replace gxde-calculator with deepin-calc
   * Prefer dde-kwin
   * 预装扫雷、2048 小游戏
+  * Android 端不默认安装 papirus-icon-theme，PC 端默认安装
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 12 Jan 2025 22:09:48 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 26 Jan 2025 10:21:23 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
