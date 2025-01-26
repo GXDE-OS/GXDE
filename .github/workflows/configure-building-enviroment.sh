@@ -17,11 +17,13 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 # 写入 GXDE 源
 # 判断是否是 Ubuntu
 #isUbuntu=$(cat /etc/os-release | grep Ubuntu | wc -l)
-if [[ $1 == "meimei" ]]; then
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/meimei ./" >> /etc/apt/sources.list.d/gxde-os.list
-else
+
+
+if [[ $1 == "" ]] || [[ $1 == "tianlu" ]]; then
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+else
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/$1 ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
 #if [[ $(dpkg --print-architecture) == "loong64" ]]; then
 #    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
