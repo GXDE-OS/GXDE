@@ -1,4 +1,4 @@
-name: Building GXDE Testing Package
+name: Building GXDE Testing Package (zhuangzhuang)
 run-name: Building ${{ GITHUB.REPOSITORY }}
 
 on:
@@ -22,7 +22,7 @@ env:
   BOTTLEPATH: system-bottle
 
 jobs:  
-  amd64:
+  amd64-zhuangzhuang:
     runs-on: ubuntu-latest
     steps:
       # 由于默认的 Ubuntu 环境只有 17G 左右的剩余空间，所以我们需要先利用如下 action 对编译环境进行扩容
@@ -46,7 +46,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh amd64 trixie $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
@@ -94,7 +94,7 @@ jobs:
             *.deb
           generate_release_notes: true
 
-  arm64:
+  arm64-zhuangzhuang:
     runs-on: ubuntu-24.04
     #runs-on: self-hosted
     steps:
@@ -119,7 +119,7 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 bookworm $REPOSITORY https://github.com/$GITHUB_REPOSITORY
+          bash .github/workflows/configure-building-enviroment-base-system.sh arm64 trixie $REPOSITORY https://github.com/$GITHUB_REPOSITORY
 
       - name: Building ${{ GITHUB.repository }}
         run: |
