@@ -55,7 +55,9 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
 #apt build-dep qemu -y
 # 如果是 Debian10 就需要安装 Python3 的依赖
 #apt build-dep python3.7 -y
-
+# 解包 deepin-desktop-base
+apt download deepin-desktop-base
+dpkg -x deepin-desktop-base_*.deb /
     
 for i in {1..5};
 do
