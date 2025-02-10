@@ -1,16 +1,8 @@
-gxde (2025.01.26) UNRELEASED; urgency=medium
+gxde (2025.01.27) UNRELEASED; urgency=medium
 
-  * Change package: dde-calendar --> gxde-calendar
-  * Add package: gparted
-  * Change gxde-desktop depends, gxde-desktop-extra, gxde-desktop-android depends and conflicts
-  * Replace file-roller by gxde-compressor 
-  * Recommend deepin-camera
-  * Replace gxde-calculator with deepin-calc
-  * Prefer dde-kwin
-  * 预装扫雷、2048 小游戏
-  * Android 端不默认安装 papirus-icon-theme，PC 端默认安装
+  * 新增 remmina 以解决远程问题
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 26 Jan 2025 10:21:23 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Mon, 10 Feb 2025 17:14:15 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 

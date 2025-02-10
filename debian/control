@@ -38,6 +38,7 @@ Recommends: ${misc:Depends},
  com.github.minesweep,
  2048-qt,
  papirus-icon-theme,
+ remmina
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
