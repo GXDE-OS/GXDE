@@ -1,6 +1,7 @@
-gxde (2025.01.27) UNRELEASED; urgency=medium
+gxde (2025.03.09) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
+  * 改为安装 dde-printer 
 
  -- gfdgd_xi <3025613752@qq.com>  Mon, 10 Feb 2025 17:14:15 +0800
 
