@@ -50,7 +50,12 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          gitPath=$(basename $GITHUB_REPOSITORY)
+          if [[ -f system-bottle/$gitPath/debian/control ]]; then
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          else
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off bash build-deb.sh
+          fi
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_zhuangzhuang.deb/' *.deb
 
@@ -123,7 +128,12 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          gitPath=$(basename $GITHUB_REPOSITORY)
+          if [[ -f system-bottle/$gitPath/debian/control ]]; then
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          else
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off bash build-deb.sh
+          fi
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_zhuangzhuang.deb/' *.deb
 
@@ -196,7 +206,12 @@ jobs:
 
       - name: Building ${{ GITHUB.repository }}
         run: |
-          env gitPath=$(basename $GITHUB_REPOSITORY) bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          gitPath=$(basename $GITHUB_REPOSITORY)
+          if [[ -f system-bottle/$gitPath/debian/control ]]; then
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off dpkg-buildpackage -b
+          else
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=lizhi GO111MODULE=off bash build-deb.sh
+          fi
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_zhuangzhuang.deb/' *.deb
 

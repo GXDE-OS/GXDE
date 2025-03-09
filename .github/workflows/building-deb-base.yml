@@ -1,5 +1,4 @@
-name: Building GXDE Package (meimei)
-run-name: Building ${{ GITHUB.REPOSITORY }}
+name: Building GXDE Package
 
 on:
   workflow_call:
@@ -17,12 +16,45 @@ on:
       UPORT: 
         required: true
 
+    inputs:
+      arch:
+        type: string
+        description: 'Rootfs Arch'
+        required: true
+
+      rootfs-codename:
+        type: string
+        description: 'Rootfs Codename'
+        required: true
+
+      rootfs-source:
+        type: string
+        description: 'Rootfs Source Url'
+        required: true
+
+      gxde-codename:
+        type: string
+        description: 'GXDE OS Codename'
+        required: true
+
+      gxde-codename-upload:
+        type: string
+        description: 'GXDE OS Codename'
+        required: true
+
+      display-name:
+        required: false
+        type: string
+
+
+
 env:
   REPOSITORY: https://github.com/GXDE-OS/GXDE  
   BOTTLEPATH: system-bottle
 
 jobs:  
-  loong64-meimei:
+  build:
+    name: ${{ inputs.display-name || 'Build Job' }}
     runs-on: ubuntu-24.04
     steps:
       # 由于默认的 Ubuntu 环境只有 17G 左右的剩余空间，所以我们需要先利用如下 action 对编译环境进行扩容
@@ -48,18 +80,22 @@ jobs:
 
       - name: Configure Base System
         run: |
-          bash .github/workflows/configure-building-enviroment-base-system.sh loong64 loongnix $REPOSITORY https://github.com/$GITHUB_REPOSITORY https://pkg.loongnix.cn/loongnix/25
+          bash .github/workflows/configure-building-enviroment-base-system.sh ${{ inputs.arch }} \
+            ${{ inputs.rootfs-codename }} \
+            $REPOSITORY \
+            https://github.com/$GITHUB_REPOSITORY \
+            ${{ inputs.rootfs-source }}
 
       - name: Building ${{ GITHUB.repository }}
         run: |
           gitPath=$(basename $GITHUB_REPOSITORY)
           if [[ -f system-bottle/$gitPath/debian/control ]]; then
-            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=meimei GO111MODULE=off dpkg-buildpackage -b
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off dpkg-buildpackage -b
           else
-            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=meimei GO111MODULE=off bash build-deb.sh
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off bash build-deb.sh
           fi
           cp $BOTTLEPATH/*.deb . -rv
-          sudo rename 's/\.deb$/_meimei.deb/' *.deb
+          sudo rename 's/\.deb$/_${{ inputs.gxde-codename }}.deb/' *.deb
 
       - name: Remove Debug Package
         run: |
@@ -88,7 +124,7 @@ jobs:
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM meimei $UPATH/$tarName > /dev/null
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM ${{ inputs.gxde-codename-upload }} $UPATH/$tarName > /dev/null
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
