@@ -75,9 +75,8 @@ Gitee: http://gitee.com/GXDE-OS
 Github: http://github.com/GXDE-OS  
 Gitcode: https://gitcode.com/GXDE-OS  
 
-## Buy a Cup of Tea for the Author
-If you find it helpful, you can buy the author a cup of tea.  
-<img src="Icon/QR/Wechat.png" width="250" />
+## Donate
+https://donate.deepinos.org.cn/donate/index.html#
 
 ### Advertisement
 Scan to receive a payment red envelope from the Alipay official event!  

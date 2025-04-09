@@ -72,9 +72,8 @@ Gitee：http://gitee.com/GXDE-OS
 Github：http://github.com/GXDE-OS  
 Gitcode：https://gitcode.com/GXDE-OS  
 
-## 请作者喝杯茶
-如果您觉得对你有帮助，可以请作者喝杯茶  
-<img src="Icon/QR/Wechat.png" width="250"  /> 
+## 捐赠
+https://donate.deepinos.org.cn/donate/index.html#
 
 ### 广告
 支付宝官方活动，扫描获得支付红包！  
