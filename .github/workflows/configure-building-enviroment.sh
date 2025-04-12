@@ -38,7 +38,7 @@ do
     fi
     sleep 1
 done
-apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
+apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring devscripts -y
 #neofetch
 #if [[ `arch` != "x86_64" ]]; then
 #    apt source qemu
@@ -58,7 +58,7 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
 # 解包 deepin-desktop-base
 apt download deepin-desktop-base
 dpkg -x deepin-desktop-base_*.deb /
-if [[ -f /etc/apt/sources.list.d/gxde-os-bpo.list ]]; then
+if [[ -f /etc/apt/sources.list.d/debian-backports.list ]]; then
     dch --bpo ""
     sed -i "s/~bpo/-bpo/g" debian/changelog
 fi
