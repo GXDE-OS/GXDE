@@ -58,7 +58,10 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring -y
 # 解包 deepin-desktop-base
 apt download deepin-desktop-base
 dpkg -x deepin-desktop-base_*.deb /
-    
+if [[ -f /etc/apt/sources.list.d/gxde-os-bpo.list ]]; then
+    dch --bpo ""
+    sed -i "s/~bpo/-bpo/g" debian/changelog
+fi
 for i in {1..5};
 do
     apt build-dep . -y
