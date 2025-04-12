@@ -42,6 +42,11 @@ on:
         description: 'GXDE OS Codename'
         required: true
 
+      gxde-is-backport:
+        type: boolean
+        description: 'Is build with backport'
+        required: false
+
       display-name:
         required: false
         type: string
@@ -80,11 +85,15 @@ jobs:
 
       - name: Configure Base System
         run: |
+          if [[ ${{ inputs.gxde-is-backport }} == true ]]; then
+            isBackport=backport
+          fi
           bash .github/workflows/configure-building-enviroment-base-system.sh ${{ inputs.arch }} \
             ${{ inputs.rootfs-codename }} \
             $REPOSITORY \
             https://github.com/$GITHUB_REPOSITORY \
-            ${{ inputs.rootfs-source }}
+            ${{ inputs.rootfs-source }} \
+            $isBackport
 
       - name: Building ${{ GITHUB.repository }}
         run: |

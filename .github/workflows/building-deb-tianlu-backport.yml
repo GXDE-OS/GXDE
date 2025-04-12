@@ -1,0 +1,95 @@
+name: Building GXDE Testing Package (tianlu)
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-i386-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: i386-tianlu
+      arch: i386
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
+
+  call-amd64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: amd64-tianlu
+      arch: amd64
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
+
+  call-arm64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: arm64-tianlu
+      arch: arm64
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
+
+  call-mips64el-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: mips64el-tianlu
+      arch: mips64el
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
+
+  call-loong64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: loong64-tianlu
+      arch: loong64
+      rootfs-codename: sid
+      rootfs-source: https://deb.debian.org/debian-ports/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
+
+  call-riscv64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: riscv64-tianlu
+      arch: riscv64
+      rootfs-codename: sid
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu-bpo
+      gxde-is-backport: true
