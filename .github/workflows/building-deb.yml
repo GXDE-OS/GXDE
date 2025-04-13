@@ -33,3 +33,23 @@ jobs:
   call-tianlu:
     uses: GXDE-OS/GXDE/.github/workflows/building-deb-tianlu.yml@master
     secrets: inherit
+
+  UploadOBS:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get REPOSITORY Name
+        run: |
+          echo "REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)" >> $GITHUB_ENV
+          REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+          mkdir /home/runner/work/$REPO_NAME/$REPO_NAME/debian-deb-output
+
+      - name: Upload to OBS
+        uses: LingmoOS/action-upload-to-obs@0.0.4
+        with:
+          remove-old-sources: true
+          obs-package-name: ${{ env.REPO_NAME }}
+          obs-project-name: 'home:gfdgd-xi'
+          obs-user-name: ${{ secrets.OBS_USERNAME }}
+          obs-password: ${{ secrets.OBS_PASSWORD }}
+          obs-instance-url: 'https://api.opensuse.org'
+          local-package-dir: './debian-deb-output'
