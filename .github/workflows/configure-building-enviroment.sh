@@ -22,6 +22,9 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 if [[ $1 == "" ]] || [[ $1 == "tianlu" ]]; then
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+elif [[ $1 == "zhuangzhuang" ]];then
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/zhuangzhuang ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/lizhi ./" >> /etc/apt/sources.list.d/gxde-os.list
 else
     echo "deb [trusted=true] https://repo.gxde.org/gxde-os/$1 ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
