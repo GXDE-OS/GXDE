@@ -76,14 +76,3 @@ jobs:
       rootfs-source: https://deb.debian.org/debian-ports/
       gxde-codename: bixie
       gxde-codename-upload: tianlu
-
-  call-riscv64-tianlu:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
-    secrets: inherit
-    with:
-      display-name: riscv64-tianlu
-      arch: riscv64
-      rootfs-codename: sid
-      rootfs-source: https://deb.debian.org/debian/
-      gxde-codename: bixie
-      gxde-codename-upload: tianlu
