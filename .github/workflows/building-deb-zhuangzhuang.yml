@@ -22,6 +22,17 @@ env:
   BOTTLEPATH: system-bottle
 
 jobs:  
+  call-i386-zhuangzhuang:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: i386-zhuangzhuang
+      arch: i386
+      rootfs-codename: trixie
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: lizhi
+      gxde-codename-upload: zhuangzhuang
+
   call-amd64-zhuangzhuang:
     uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
     secrets: inherit
