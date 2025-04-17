@@ -109,7 +109,7 @@ jobs:
       - name: Remove Debug Package
         run: |
           cd $BOTTLEPATH
-          echo -e "ls -1 | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
+          echo -e "ls -1 | grep -dbg_ | grep dbgsym | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
           removeDeb=$(bash remove-deb.sh)
           sudo rm -rf $removeDeb
 
