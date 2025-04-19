@@ -22,10 +22,6 @@ env:
   BOTTLEPATH: system-bottle
 
 jobs:  
-  call:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang.yml@master
-    secrets: inherit
-
   call-loong64-tianlu:
     uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
     secrets: inherit
