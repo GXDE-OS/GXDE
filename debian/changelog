@@ -1,10 +1,11 @@
-gxde (2025.04.06) UNRELEASED; urgency=medium
+gxde (2025.04.22) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
   * 新增屏保
+  * 修复安装 gxde-desktop-android 会自动安装 gxde-desktop-extra 的问题
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 06 Apr 2025 10:58:29 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Tue, 22 Apr 2025 22:17:56 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
