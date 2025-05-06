@@ -41,15 +41,15 @@ Discord: https://discord.gg/t5Uf2xYpvA
 
 Please check https://www.gxde.top/en/install/
 
-![1](https://www.gxde.top/1.png)
+![1](https://www.gxde.top/1.jpg)
 
-![2](https://www.gxde.top/2.png)
+![2](https://www.gxde.top/2.jpg)
 
-![3](https://www.gxde.top/3.png)
+![3](https://www.gxde.top/3.jpg)
 
-![4](https://www.gxde.top/4.png)
+![4](https://www.gxde.top/4.jpg)
 
-![5](https://www.gxde.top/5.png)
+![5](https://www.gxde.top/5.jpg)
 
 
 ## Other Projects
