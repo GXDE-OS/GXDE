@@ -39,17 +39,17 @@ Discord: https://discord.gg/t5Uf2xYpvA
 > Currently, ISO supports amd64, arm64
 
 
-Please check https://www.gxde.org/en/install/
+Please check https://www.gxde.top/en/install/
 
-![1](https://www.gxde.org/1.png)
+![1](https://www.gxde.top/1.png)
 
-![2](https://www.gxde.org/2.png)
+![2](https://www.gxde.top/2.png)
 
-![3](https://www.gxde.org/3.png)
+![3](https://www.gxde.top/3.png)
 
-![4](https://www.gxde.org/4.png)
+![4](https://www.gxde.top/4.png)
 
-![5](https://www.gxde.org/5.png)
+![5](https://www.gxde.top/5.png)
 
 
 ## Other Projects
