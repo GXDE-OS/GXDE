@@ -165,7 +165,6 @@ Conflicts:
  deepin-desktop-environment-desktop,
  deepin-desktop-environment-dock,
  deepin-desktop-environment-launcher,
- libdframeworkdbus2(>> 15)
 Description: GXDE New Desktop Environment - Next
  This is a meta package depends GXDE New Desktop Envrionment.
  .
