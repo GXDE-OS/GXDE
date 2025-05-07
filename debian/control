@@ -64,7 +64,6 @@ Depends:
  gxde-movie, 
  gxde-quick-hash, 
  spark-store | aptss, 
- loongsonapplication,
  deepin-system-monitor,
  dde-control-center,
  dde-file-manager,

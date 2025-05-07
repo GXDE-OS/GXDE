@@ -1,4 +1,4 @@
-gxde (2025.05.04) UNRELEASED; urgency=medium
+gxde (2025.05.07) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -6,8 +6,9 @@ gxde (2025.05.04) UNRELEASED; urgency=medium
   * 修复安装 gxde-desktop-android 会自动安装 gxde-desktop-extra 的问题
   * 新增推荐依赖：龙芯应用合作社（仅限：mips64el loongarch64 loong64）
   * 移除推荐依赖：plank
+  * 修复小小电脑无法正常更新 gxde-desktop-android 的问题
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 04 May 2025 19:29:23 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Wed, 07 May 2025 12:14:19 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
