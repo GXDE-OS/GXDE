@@ -2,6 +2,8 @@
 <hr>
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 
+![G-Start](https://gitcode.com/GXDE-OS/GXDE/star/badge.svg)  
+
 
 **[English](/README.md)**
 
