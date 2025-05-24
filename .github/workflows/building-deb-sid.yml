@@ -32,3 +32,7 @@ jobs:
       rootfs-source: https://deb.debian.org/debian-ports/
       gxde-codename: bixie
       gxde-codename-upload: tianlu
+
+    call-zhuangzhuang:
+      uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang.yml@master
+      secrets: inherit
