@@ -35,6 +35,7 @@ jobs:
     secrets: inherit
 
   UploadOBS:
+    if: github.repository_owner == 'GXDE-OS'
     runs-on: ubuntu-latest
     steps:
       - name: Get REPOSITORY Name
