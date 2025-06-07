@@ -89,9 +89,9 @@ Description: GXDE New Desktop Environment For PRoot - Next
 Package: gxde-desktop
 Architecture: all
 Depends: ${misc:Depends},
- deepin-desktop-base,
+ gxde-desktop-base,
  dde-desktop,
- dde-dock,
+ gxde-dock,
  gxde-control-center,
  gxde-launcher,
  startdde,
