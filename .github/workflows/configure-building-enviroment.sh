@@ -58,9 +58,9 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring de
 #apt build-dep qemu -y
 # 如果是 Debian10 就需要安装 Python3 的依赖
 #apt build-dep python3.7 -y
-# 解包 deepin-desktop-base
-apt download deepin-desktop-base
-dpkg -x deepin-desktop-base_*.deb /
+# 解包 gxde-desktop-base
+apt download gxde-desktop-base
+dpkg -x gxde-desktop-base_*.deb /
 if [[ -f /etc/apt/sources.list.d/debian-backports.list ]]; then
     dch --bpo ""
     sed -i "s/~bpo/-bpo/g" debian/changelog
