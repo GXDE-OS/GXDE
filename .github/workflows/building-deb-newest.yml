@@ -1,0 +1,42 @@
+name: Building GXDE Package for Newest Release
+run-name: Building for Newest Release ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-loong64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: loong64-tianlu
+      arch: loong64
+      rootfs-codename: sid
+      rootfs-source: https://deb.debian.org/debian-ports/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu
+
+  call-zhuangzhuang:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang.yml@master
+    secrets: inherit
+
+  call-meimei:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-meimei.yml@master
+    secrets: inherit
