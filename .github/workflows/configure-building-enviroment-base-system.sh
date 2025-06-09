@@ -37,8 +37,10 @@ else
 fi
 if [[ $2 == "crimson" ]]; then
     useDeepin25
+    sudo debootstrap --no-check-gpg --include=git,deepin-keyring,gcc,make,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+else
+    sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
 fi
-sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
 
 if [[ $2 == "crimson" ]]; then
     sudo sed -i "s/main/main commercial community/g" $bottlePath/etc/apt/sources.list
