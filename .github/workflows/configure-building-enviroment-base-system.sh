@@ -18,6 +18,9 @@ function useDebianPort() {
 function useLoongnix() {
     sudo cp .github/workflows/loongnix /usr/share/debootstrap/scripts/ -v
 }
+function useDeepin25() {
+    sudo cp .github/workflows/crimson /usr/share/debootstrap/scripts/ -v
+}
 
 sudo apt update
 sudo apt install debootstrap rename binfmt-support qemu-user qemu-user-static git -y
@@ -32,7 +35,14 @@ else
         useLoongnix
     fi
 fi
+if [[ $2 == "crimson" ]]; then
+    useDeepin25
+fi
 sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+
+if [[ $2 == "crimson" ]]; then
+    sudo sed -i "s/main/main commercial community/g" $bottlePath/etc/apt/sources.list
+fi
 #if [[ $? != 0 ]]; then
 #    sudo debootstrap --foreign --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5 
 #fi
@@ -66,6 +76,9 @@ case $2 in
     ;;
     "loongnix")
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh meimei
+    ;;
+    "crimson")
+        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh hetao
     ;;
     *)
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh

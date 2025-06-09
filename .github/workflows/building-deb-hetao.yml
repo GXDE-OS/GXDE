@@ -1,0 +1,34 @@
+name: Building GXDE Package (hetao)
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-loong64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: loong64-hetao
+      arch: loong64
+      rootfs-codename: crimson
+      rootfs-source: https://community-packages.deepin.com/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
