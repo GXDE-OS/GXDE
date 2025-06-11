@@ -1,4 +1,4 @@
-gxde (2025.06.11) UNRELEASED; urgency=medium
+gxde (2025.06.11-1) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -12,8 +12,9 @@ gxde (2025.06.11) UNRELEASED; urgency=medium
     gxde-session-ui、gxde-file-manager、gxde-desktop-panel
   * startdde=>startgxde
   * dde-kwin --> gxde-wm-shim
-  
- -- gfdgd_xi <3025613752@qq.com>  Mon, 09 Jun 2025 07:42:12 +0800
+  * 新增推荐依赖 gxde-desktop
+
+ -- gfdgd_xi <3025613752@qq.com>  Wed, 11 Jun 2025 13:04:09 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
