@@ -22,12 +22,45 @@ env:
   BOTTLEPATH: system-bottle
 
 jobs:  
+  call-amd64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: amd64-hetao
+      arch: amd64
+      rootfs-codename: crimson
+      rootfs-source: https://community-packages.deepin.com/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+
+  call-arm64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: arm64-hetao
+      arch: arm64
+      rootfs-codename: crimson
+      rootfs-source: https://community-packages.deepin.com/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+
   call-loong64-hetao:
     uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
     secrets: inherit
     with:
       display-name: loong64-hetao
       arch: loong64
+      rootfs-codename: crimson
+      rootfs-source: https://community-packages.deepin.com/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+
+  call-riscv64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: riscv64-hetao
+      arch: riscv64
       rootfs-codename: crimson
       rootfs-source: https://community-packages.deepin.com/deepin/beige/
       gxde-codename: hetao
