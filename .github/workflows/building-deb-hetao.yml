@@ -29,7 +29,7 @@ jobs:
       display-name: amd64-hetao
       arch: amd64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
 
@@ -40,7 +40,7 @@ jobs:
       display-name: arm64-hetao
       arch: arm64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
 
@@ -51,7 +51,7 @@ jobs:
       display-name: loong64-hetao
       arch: loong64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
 
@@ -62,6 +62,6 @@ jobs:
       display-name: riscv64-hetao
       arch: riscv64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
