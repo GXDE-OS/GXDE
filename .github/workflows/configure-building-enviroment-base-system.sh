@@ -56,7 +56,7 @@ if [[ $? != 0 ]] && [[ $1 == loong64 ]] && [[ $2 != "loongnix" ]]; then
     sudo mv squashfs-root $bottlePath -v
 fi
 sudo bash .github/workflows/pardus-chroot $bottlePath
-if [[ $6 == "backport" ]]; then
+if [[ $7 == "backport" ]]; then
     sudo cp -rv .github/workflows/debian-backports.list $bottlePath/etc/apt/sources.list.d
     sudo mkdir -p $bottlePath/etc/apt/preferences.d/
     sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
@@ -68,7 +68,7 @@ sudo chroot $bottlePath apt update
 sudo chroot $bottlePath apt full-upgrade -y
 sudo chroot $bottlePath apt install git -y
 sudo chroot $bottlePath git clone $3 #--depth=1
-sudo chroot $bottlePath git clone $4 #--depth=1
+sudo chroot $bottlePath git clone $4 -b $6 #--depth=1
 sudo mv $bottlePath/$(basename $3)/.github/workflows/* $bottlePath/$(basename $4)/.github/workflows -v
 # 修改版本号
 #sudo sed -i "s/) UNRELEASED; urgency=medium/~$2) UNRELEASED; urgency=medium/g" $bottlePath/deep-wine-runner-qemu-system/debian/changelog

@@ -89,11 +89,13 @@ jobs:
           if [[ ${{ inputs.gxde-is-backport }} == true ]]; then
             isBackport=backport
           fi
+          export REPO_BRANCH=${{ github.ref_name }}
           bash .github/workflows/configure-building-enviroment-base-system.sh ${{ inputs.arch }} \
             ${{ inputs.rootfs-codename }} \
             $REPOSITORY \
             https://github.com/$GITHUB_REPOSITORY \
             ${{ inputs.rootfs-source }} \
+            ${{ github.ref_name }} \
             $isBackport
 
       - name: Building ${{ GITHUB.repository }}
