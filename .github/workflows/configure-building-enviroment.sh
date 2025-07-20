@@ -20,13 +20,13 @@ export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
 
 
 if [[ $1 == "" ]] || [[ $1 == "tianlu" ]]; then
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/tianlu ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/bixie ./" >> /etc/apt/sources.list.d/gxde-os.list
 elif [[ $1 == "zhuangzhuang" ]];then
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/zhuangzhuang ./" >> /etc/apt/sources.list.d/gxde-os.list
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/lizhi ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/zhuangzhuang ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/lizhi ./" >> /etc/apt/sources.list.d/gxde-os.list
 else
-    echo "deb [trusted=true] https://repo.gxde.org/gxde-os/$1 ./" >> /etc/apt/sources.list.d/gxde-os.list
+    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/$1 ./" >> /etc/apt/sources.list.d/gxde-os.list
 fi
 #if [[ $(dpkg --print-architecture) == "loong64" ]]; then
 #    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
