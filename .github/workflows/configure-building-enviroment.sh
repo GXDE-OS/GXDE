@@ -61,6 +61,7 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring de
 # 解包 gxde-desktop-base
 apt download gxde-desktop-base
 dpkg -x gxde-desktop-base_*.deb /
+rm gxde-desktop-base_*.deb -rfv
 if [[ -f /etc/apt/sources.list.d/debian-backports.list ]]; then
     dch --bpo ""
     sed -i "s/~bpo/-bpo/g" debian/changelog
