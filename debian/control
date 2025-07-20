@@ -26,7 +26,6 @@ Recommends: ${misc:Depends},
  gxde-sendbylan,
  gxde-dict,
  gxde-system-assistant,
- spark-store | aptss,
  loongsonapplication,
  gxde-boot-maker,
  deepin-clone,
@@ -67,6 +66,7 @@ Depends:
  deepin-system-monitor,
  gxde-control-center,
  gxde-file-manager,
+ spark-store | aptss,
 Conflicts:
  plymouth-theme-gxde-logo,
  linux-kernel-gxde-i386,
@@ -158,6 +158,7 @@ Recommends:
  fcitx5-table,
  fantascene-dynamic-wallpaper,
  x11vnc,
+ apt-is-aptss,
 Conflicts:
  deepin-desktop-environment-desktop,
  deepin-desktop-environment-dock,
