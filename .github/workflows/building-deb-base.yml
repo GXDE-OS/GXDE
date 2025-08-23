@@ -102,9 +102,9 @@ jobs:
         run: |
           gitPath=$(basename $GITHUB_REPOSITORY)
           if [[ -f system-bottle/$gitPath/debian/control ]]; then
-            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off dpkg-buildpackage -b
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_ARCH=${{ inputs.arch }} GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off dpkg-buildpackage -b
           else
-            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off bash build-deb.sh
+            env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh env GXDE_ARCH=${{ inputs.arch }} GXDE_CODENAME=${{ inputs.gxde-codename }} GO111MODULE=off bash build-deb.sh
           fi
           cp $BOTTLEPATH/*.deb . -rv
           sudo rename 's/\.deb$/_${{ inputs.gxde-codename }}.deb/' *.deb
