@@ -1,0 +1,71 @@
+name: Building GXDE Package (hetao)
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-amd64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: amd64-hetao
+      arch: amd64
+      rootfs-codename: crimson
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+      gxde-cross-arch: amd64
+
+  call-arm64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: arm64-hetao
+      arch: amd64
+      rootfs-codename: crimson
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+      gxde-cross-arch: arm64
+
+  call-loong64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: loong64-hetao
+      arch: amd64
+      rootfs-codename: crimson
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+      gxde-cross-arch: loong64
+
+  call-riscv64-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: riscv64-hetao
+      arch: amd64
+      rootfs-codename: crimson
+      rootfs-source: https://mirrors.kernel.org/deepin/beige/
+      gxde-codename: hetao
+      gxde-codename-upload: hetao
+      gxde-cross-arch: riscv64

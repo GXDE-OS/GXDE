@@ -23,13 +23,13 @@ env:
 
 jobs:  
   call-zhuangzhuang:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang.yml@master
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang-cross.yml@master
     secrets: inherit
   
   call-hetao:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-hetao.yml@master
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-hetao-cross.yml@master
     secrets: inherit
   
   call-tianlu:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-tianlu.yml@master
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-tianlu-cross.yml@master
     secrets: inherit

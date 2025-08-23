@@ -1,0 +1,72 @@
+name: Building GXDE Testing Package (tianlu)
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-i386-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: i386-tianlu
+      arch: i386
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu
+      gxde-cross-arch: i386
+      
+
+  call-amd64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: amd64-tianlu
+      arch: amd64
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu
+      gxde-cross-arch: amd64
+
+  call-arm64-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: arm64-tianlu
+      arch: amd64
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu
+      gxde-cross-arch: arm64
+
+  call-mips64el-tianlu:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    secrets: inherit
+    with:
+      display-name: mips64el-tianlu
+      arch: amd64
+      rootfs-codename: bookworm
+      rootfs-source: https://deb.debian.org/debian/
+      gxde-codename: bixie
+      gxde-codename-upload: tianlu
+      gxde-cross-arch: mips64el
