@@ -42,6 +42,7 @@ Recommends: ${misc:Depends},
  screensaver-pp,
  gxde-time-screensaver,
  gxde-desktop,
+ bash-pinyin-completion,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
