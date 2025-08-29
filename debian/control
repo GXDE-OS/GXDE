@@ -43,6 +43,8 @@ Recommends: ${misc:Depends},
  gxde-time-screensaver,
  gxde-desktop,
  bash-pinyin-completion,
+ gxde-kernel-manager,
+ deepin-log-viewer,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
