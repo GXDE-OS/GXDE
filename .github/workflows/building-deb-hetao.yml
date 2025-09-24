@@ -34,7 +34,7 @@ jobs:
       gxde-codename-upload: hetao
 
   call-arm64-hetao:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base-arm64.yml@master
     secrets: inherit
     with:
       display-name: arm64-hetao
