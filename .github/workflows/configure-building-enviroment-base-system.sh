@@ -76,6 +76,9 @@ case $2 in
     "trixie")
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh zhuangzhuang
     ;;
+    "sid")
+        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh zhuangzhuang
+    ;;
     "loongnix")
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh meimei
     ;;
