@@ -68,19 +68,6 @@ jobs:
     name: ${{ inputs.display-name || 'Build Job' }}
     runs-on: riscv-builders
     steps:
-      # 由于默认的 Ubuntu 环境只有 17G 左右的剩余空间，所以我们需要先利用如下 action 对编译环境进行扩容
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        with:
-          # 这个值是保留给系统的空间大小，之前设置太小，总会在安装依赖或者编译过程中报设备空间不足的错误而导致编译失败
-          root-reserve-mb: 4096
-          swap-size-mb: 512
-          remove-dotnet: 'true'
-          remove-docker-images: 'true'
-          remove-codeql: 'true'
-          remove-haskell: 'true'
-          remove-android: 'true'
-
       - name: Clone Repository To Get Script
         run: |
           #apt update
