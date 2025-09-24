@@ -56,7 +56,7 @@ jobs:
       gxde-codename-upload: zhuangzhuang
 
   call-riscv64-zhuangzhuang:
-    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base.yml@master
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-base-riscv64.yml@master
     secrets: inherit
     with:
       display-name: riscv64-zhuangzhuang
