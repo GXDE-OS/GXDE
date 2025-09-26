@@ -45,6 +45,7 @@ Recommends: ${misc:Depends},
  bash-pinyin-completion,
  gxde-kernel-manager,
  deepin-log-viewer,
+ fcitx5-table-wubi98,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
