@@ -61,7 +61,6 @@ Depends:
  gxde-deb-installer, 
  gxde-editor, 
  gxde-image-viewer, 
- gxde-ocr, 
  gxde-music, 
  gxde-font-installer, 
  gxde-movie, 
@@ -71,6 +70,8 @@ Depends:
  gxde-control-center,
  gxde-file-manager,
  spark-store | aptss,
+Recommends:
+ gxde-ocr
 Conflicts:
  plymouth-theme-gxde-logo,
  linux-kernel-gxde-i386,
