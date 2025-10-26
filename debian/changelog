@@ -18,6 +18,7 @@ gxde (2025.10.26) UNRELEASED; urgency=medium
   * 新增推荐依赖 bash-pinyin-completion
   * 新增推荐依赖gxde-kernel-manager、deepin-log-viewer
   * 新增 98 版五笔输入法
+  * 新增推荐fcitx5-pinyin-zhwiki
   * gxde-desktop-android gxde-ocr 设置为推荐依赖
 
  -- gfdgd_xi <3025613752@qq.com>  Sun, 26 Oct 2025 15:26:32 +0800
