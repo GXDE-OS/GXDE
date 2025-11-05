@@ -1,4 +1,4 @@
-gxde (2025.10.26) UNRELEASED; urgency=medium
+gxde (2025.11.05) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -20,8 +20,9 @@ gxde (2025.10.26) UNRELEASED; urgency=medium
   * 新增 98 版五笔输入法
   * 新增推荐fcitx5-pinyin-zhwiki
   * gxde-desktop-android gxde-ocr 设置为推荐依赖
+  * 新增 GXDE 硬件管理器
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 26 Oct 2025 15:26:32 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Wed, 05 Nov 2025 22:28:46 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
