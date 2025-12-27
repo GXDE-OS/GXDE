@@ -48,6 +48,7 @@ Recommends: ${misc:Depends},
  deepin-log-viewer,
  fcitx5-table-wubi98,
  fcitx5-pinyin-zhwiki,
+ dde-cooperation,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
