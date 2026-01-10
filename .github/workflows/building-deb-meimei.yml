@@ -28,7 +28,7 @@ jobs:
     with:
       display-name: loong64-meimei
       arch: loong64
-      rootfs-codename: loongnix
+      rootfs-codename: loongnix-stable
       rootfs-source: https://pkg.loongnix.cn/loongnix/25
       gxde-codename: meimei
       gxde-codename-upload: meimei

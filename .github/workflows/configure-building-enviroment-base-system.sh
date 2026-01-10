@@ -16,7 +16,7 @@ function useDebianPort() {
     sudo cp /usr/share/keyrings/debian-archive-keyring.gpg /usr/share/keyrings/debian-ports-archive-keyring.gpg -v
 }
 function useLoongnix() {
-    sudo cp .github/workflows/loongnix /usr/share/debootstrap/scripts/ -v
+    sudo cp .github/workflows/loongnix-stable /usr/share/debootstrap/scripts/ -v
 }
 function useDeepin25() {
     sudo cp .github/workflows/crimson /usr/share/debootstrap/scripts/ -v
@@ -29,7 +29,7 @@ bottlePath=./system-bottle
 if [[ $2 == "beige" ]]; then
     getd23debootstrap
 else
-    if [[ $1 == "loong64" ]] && [[ $2 != "loongnix" ]]; then
+    if [[ $1 == "loong64" ]] && [[ $2 != "loongnix-stable" ]]; then
         useDebianPort
     else
         useLoongnix
@@ -79,7 +79,7 @@ case $2 in
     "sid")
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh zhuangzhuang
     ;;
-    "loongnix")
+    "loongnix-stable")
         env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh meimei
     ;;
     "crimson")
