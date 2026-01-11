@@ -33,3 +33,7 @@ jobs:
   call-tianlu:
     uses: GXDE-OS/GXDE/.github/workflows/building-deb-tianlu-cross.yml@master
     secrets: inherit
+
+  call-meimei:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-meimei-cross.yml@master
+    secrets: inherit
