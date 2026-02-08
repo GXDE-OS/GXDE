@@ -49,6 +49,7 @@ Recommends: ${misc:Depends},
  fcitx5-table-wubi98,
  fcitx5-pinyin-zhwiki,
  dde-cooperation,
+ firmware-atheros,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
@@ -90,6 +91,7 @@ Conflicts:
  plymouth,
  tela-grub2-themes,
  plymouth-theme-gxde-logo,
+ firmware-atheros,
 Description: GXDE New Desktop Environment For PRoot - Next
  This is a meta package depends GXDE New Desktop Envrionment in Android PRoot.
  .
