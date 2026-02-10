@@ -50,16 +50,11 @@ def sync(i):
     os.system(f"rm -rf '{programPath}/git-clone/{i}.git'")
     thread -= 1
 
-data = requests.get("https://github.com/orgs/GXDE-OS/repos_list?q=&page=1", headers=dataHeaders).json()
-# 获取页数
-page = int(data["pageCount"])
+data = requests.get("https://api.github.com/users/GXDE-OS/repos", headers=dataHeaders).json()
 repoList = []
 # 获取仓库列表
-for i in range(1, page + 1):
-    pageData = requests.get(f"https://github.com/orgs/GXDE-OS/repos_list?q=&page={i}", headers=dataHeaders).json()
-    repositories = pageData["repositories"]
-    for j in repositories:
-        repoList.append(j["name"])
+for i in data:
+    repoList.append(i["name"])
 # 多线程处理以提升速度
 thread = 0
 threadMax = 32
