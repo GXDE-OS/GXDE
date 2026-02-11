@@ -62,6 +62,8 @@ if [[ $7 == "backport" ]]; then
     sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
     echo "deb [trusted=true] https://repo.gxde.top/gxde-os/tianlu-bpo ./" >> $bottlePath/etc/apt/sources.list.d/gxde-os-bpo.list
 fi
+sudo mkdir -p $bottlePath/sources-list
+sudo cp -v .github/workflows/sources-*.list $bottlePath/sources-list
 # 配置 git
 #echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" | sudo tee $bottlePath/etc/apt/sources.list.d/debian-unreleased.list
 sudo chroot $bottlePath apt update

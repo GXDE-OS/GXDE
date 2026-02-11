@@ -33,6 +33,9 @@ fi
 #fi
 apt install -f -y
 apt install debian-ports-archive-keyring debian-archive-keyring -y
+if [[ -f /sources-list/sources-$1.list ]]; then
+    cp /sources-list/sources-$1.list /etc/apt/sources.list.d -v
+fi
 for i in {1..8};
 do
     apt update -o Acquire::Check-Valid-Until=false -y
@@ -59,6 +62,7 @@ apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring de
 # 如果是 Debian10 就需要安装 Python3 的依赖
 #apt build-dep python3.7 -y
 # 解包 gxde-desktop-base
+
 apt download gxde-desktop-base
 dpkg -x gxde-desktop-base_*.deb /
 rm gxde-desktop-base_*.deb -rfv
