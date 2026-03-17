@@ -1,0 +1,35 @@
+name: Building GXDE Testing Package
+run-name: Building ${{ GITHUB.REPOSITORY }}
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST: 
+        required: true
+      UPATH: 
+        required: true
+      UPROGRAM: 
+        required: true
+      UPORT: 
+        required: true
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE  
+  BOTTLEPATH: system-bottle
+
+jobs:  
+  call-zhuangzhuang:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-zhuangzhuang-cross-host.yml@master
+    secrets: inherit
+  
+  call-hetao:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-hetao-cross-host.yml@master
+    secrets: inherit
+  
+  call-meimei:
+    uses: GXDE-OS/GXDE/.github/workflows/building-deb-meimei-cross.yml@master
+    secrets: inherit

@@ -51,7 +51,7 @@ jobs:
     secrets: inherit
     with:
       display-name: arm64-zhuangzhuang
-      arch: amd64
+      arch: arm64
       rootfs-codename: trixie
       rootfs-source: https://deb.debian.org/debian/
       gxde-codename: lizhi
