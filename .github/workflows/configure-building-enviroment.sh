@@ -34,7 +34,11 @@ fi
 apt install -f -y
 apt install debian-ports-archive-keyring debian-archive-keyring -y
 if [[ -f /sources-list/sources-$1.list ]]; then
-    cp /sources-list/sources-$1.list /etc/apt/sources.list.d -v
+    if [[ $(dpkg --print-architecture) == "riscv64" ]]; then
+    cp /sources-list/sources-$1-without-backport.list /etc/apt/sources.list.d -v
+    else
+        cp /sources-list/sources-$1.list /etc/apt/sources.list.d -v
+    fi
 fi
 for i in {1..8};
 do
