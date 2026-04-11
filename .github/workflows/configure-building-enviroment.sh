@@ -48,7 +48,7 @@ do
     fi
     sleep 1
 done
-apt install dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring devscripts -y
+apt install wget curl dpkg-dev sudo debian-ports-archive-keyring debian-archive-keyring devscripts -y
 #neofetch
 #if [[ `arch` != "x86_64" ]]; then
 #    apt source qemu
@@ -82,4 +82,13 @@ do
     fi
     sleep 1
 done
+# 从上游拉源代码
+./debian/rules get-orig-source
+if find . -maxdepth 1 -name "*.tar*" | grep -q .; then
+    # 存在上游 tar
+    mkdir /tmp/unpack
+    for archive in *.tar*; do tar -xzvf "$archive" -C /tmp/unpack; done
+    cp -rv /tmp/unpack/*/* . -rv
+    cp -rv /tmp/unpack/*/.* . -rv
+fi
 exit 0
