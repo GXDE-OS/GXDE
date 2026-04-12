@@ -83,12 +83,47 @@ do
     sleep 1
 done
 # 从上游拉源代码
+# 从上游拉源代码
 ./debian/rules get-orig-source
-if find . -maxdepth 1 -name "*.tar*" | grep -q .; then
-    # 存在上游 tar
-    mkdir /tmp/unpack
-    for archive in *.tar*; do tar -xzvf "$archive" -C /tmp/unpack; done
-    cp -rv /tmp/unpack/*/* . -rv
-    cp -rv /tmp/unpack/*/.* . -rv
+
+# 收集当前目录和上层目录的所有 .tar* 文件
+tar_files=()
+if compgen -G "./*.tar*" > /dev/null; then
+    tar_files+=( ./*.tar* )
 fi
+if compgen -G "../*.tar*" > /dev/null; then
+    tar_files+=( ../*.tar* )
+fi
+
+# 如果找到 tar 文件，则逐个处理
+if [ ${#tar_files[@]} -gt 0 ]; then
+    for archive in "${tar_files[@]}"; do
+        filename=$(basename "$archive")
+        echo "处理: $archive"
+
+        # 确定目标目录
+        target_dir="."
+        if [[ "$filename" =~ -(amd64|arm64)\.tar ]]; then
+            arch="${BASH_REMATCH[1]}"
+            target_dir="./$arch"
+            echo "  架构: $arch → 目标目录: $target_dir"
+        else
+            echo "  通用包 → 目标目录: 当前目录"
+        fi
+
+        mkdir -p "$target_dir"
+
+        # 直接解压到目标目录，去除顶层目录
+        if tar -xzvf "$archive" -C "$target_dir" --strip-components=1; then
+            echo "  完成: 内容已解压至 $target_dir"
+            # （可选）解压成功后删除原始 tar 文件
+            # rm "$archive"
+        else
+            echo "  错误: 解压 $archive 失败，保留原始文件。"
+        fi
+    done
+else
+    echo "未找到任何 .tar* 文件，跳过解压步骤。"
+fi
+
 exit 0
