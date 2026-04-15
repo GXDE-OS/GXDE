@@ -56,7 +56,7 @@ if [[ $? != 0 ]] && [[ $1 == loong64 ]] && [[ $2 != "loongnix" ]]; then
     sudo mv squashfs-root $bottlePath -v
 fi
 sudo bash .github/workflows/pardus-chroot $bottlePath
-if [[ $7 == "backport" ]]; then
+if [[ $8 == "backport" ]]; then
     sudo cp -rv .github/workflows/debian-backports.list $bottlePath/etc/apt/sources.list.d
     sudo mkdir -p $bottlePath/etc/apt/preferences.d/
     sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
@@ -74,22 +74,6 @@ sudo chroot $bottlePath git clone $4 -b $6 #--depth=1
 sudo mv $bottlePath/$(basename $3)/.github/workflows/* $bottlePath/$(basename $4)/.github/workflows -v
 # 修改版本号
 #sudo sed -i "s/) UNRELEASED; urgency=medium/~$2) UNRELEASED; urgency=medium/g" $bottlePath/deep-wine-runner-qemu-system/debian/changelog
-case $2 in
-    "trixie")
-        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh zhuangzhuang
-    ;;
-    "sid")
-        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh zhuangzhuang
-    ;;
-    "loongnix-stable")
-        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh meimei
-    ;;
-    "crimson")
-        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh hetao
-    ;;
-    *)
-        env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh
-    ;;
-esac
+env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh $7
 
 exit 0
