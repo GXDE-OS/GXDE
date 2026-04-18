@@ -29,7 +29,7 @@ jobs:
       display-name: amd64-hetao
       arch: amd64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirror.math.princeton.edu/pub/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
       gxde-cross-arch: amd64
@@ -41,7 +41,7 @@ jobs:
       display-name: arm64-hetao
       arch: arm64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirror.math.princeton.edu/pub/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
       gxde-cross-arch: arm64
@@ -53,7 +53,7 @@ jobs:
       display-name: loong64-hetao
       arch: amd64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirror.math.princeton.edu/pub/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
       gxde-cross-arch: loong64
@@ -65,7 +65,7 @@ jobs:
       display-name: riscv64-hetao
       arch: amd64
       rootfs-codename: crimson
-      rootfs-source: https://cdn-community-packages.deepin.com/deepin/beige/
+      rootfs-source: https://mirror.math.princeton.edu/pub/deepin/beige/
       gxde-codename: hetao
       gxde-codename-upload: hetao
       gxde-cross-arch: riscv64

@@ -62,7 +62,7 @@ jobs:
       display-name: mips64el-zhuangzhuang
       arch: mips64el
       rootfs-codename: sid
-      rootfs-source: https://mips-repo.gxde.top/debian/
+      rootfs-source: https://snapshot.debian.org/archive/debian/20250809T023713Z/
       gxde-codename: lizhi
       gxde-codename-upload: zhuangzhuang
 
