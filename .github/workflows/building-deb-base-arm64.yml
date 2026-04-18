@@ -88,6 +88,7 @@ jobs:
             https://github.com/$GITHUB_REPOSITORY \
             ${{ inputs.rootfs-source }} \
             ${{ github.ref_name }} \
+                        ${{ inputs.gxde-codename-upload }} \
             $isBackport
 
       - name: Building ${{ GITHUB.repository }}
