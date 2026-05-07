@@ -82,7 +82,8 @@ jobs:
             isBackport=backport
           fi
           export REPO_BRANCH=${{ github.ref_name }}
-          bash .github/workflows/configure-building-enviroment-base-system.sh ${{ inputs.arch }} \
+          env GXDE_ARCH=${{ inputs.arch }} GXDE_CROSS_ARCH=${{ inputs.gxde-cross-arch }} \
+            bash .github/workflows/configure-building-enviroment-base-system.sh ${{ inputs.arch }} \
             ${{ inputs.rootfs-codename }} \
             $REPOSITORY \
             https://github.com/$GITHUB_REPOSITORY \
