@@ -98,11 +98,13 @@ jobs:
             env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh \
               env GXDE_ARCH=${{ inputs.arch }} GXDE_CODENAME=${{ inputs.gxde-codename }} \
               GXDE_ARCH=${{ inputs.arch }} GXDE_CROSS_ARCH=${{ inputs.gxde-cross-arch }} GO111MODULE=off \
+              DEBIAN_FRONTEND=noninteractive \
               dpkg-buildpackage -b
           else
             env gitPath=$gitPath bash .github/workflows/run-command-in-chroot.sh \
               env GXDE_ARCH=${{ inputs.arch }} GXDE_CODENAME=${{ inputs.gxde-codename }} \
               GXDE_ARCH=${{ inputs.arch }} GXDE_CROSS_ARCH=${{ inputs.gxde-cross-arch }} GO111MODULE=off \
+              DEBIAN_FRONTEND=noninteractive \
               bash build-deb.sh
           fi
           cp $BOTTLEPATH/*.deb . -rv
