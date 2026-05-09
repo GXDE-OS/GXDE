@@ -74,6 +74,6 @@ sudo chroot $bottlePath git clone $4 -b $6 #--depth=1
 sudo mv $bottlePath/$(basename $3)/.github/workflows/* $bottlePath/$(basename $4)/.github/workflows -v
 # 修改版本号
 #sudo sed -i "s/) UNRELEASED; urgency=medium/~$2) UNRELEASED; urgency=medium/g" $bottlePath/deep-wine-runner-qemu-system/debian/changelog
-env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh env GXDE_CROSS_ARCH=$GXDE_CROSS_ARCH .github/workflows/configure-building-enviroment.sh $7
+env gitPath=$(basename $4) bash .github/workflows/run-command-in-chroot.sh .github/workflows/configure-building-enviroment.sh $7 $GXDE_CROSS_ARCH
 
 exit 0

@@ -1,5 +1,6 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive  # 防止卡 tzdate
+GXDE_CROSS_ARCH=$2
 #mkdir -p /etc/apt/sources.list.d/
 #cp /etc/apt/sources.list /etc/apt/sources.list.d/sources.list
 #sed -i "s/deb /deb-src /g" /etc/apt/sources.list.d/sources.list
