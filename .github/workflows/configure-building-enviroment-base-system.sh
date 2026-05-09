@@ -60,7 +60,7 @@ if [[ $8 == "backport" ]]; then
     sudo cp -rv .github/workflows/debian-backports.list $bottlePath/etc/apt/sources.list.d
     sudo mkdir -p $bottlePath/etc/apt/preferences.d/
     sudo cp -rv .github/workflows/90bookworm-backports $bottlePath/etc/apt/preferences.d/
-    echo "deb [trusted=true] https://repo.gxde.top/gxde-os/tianlu-bpo ./" >> $bottlePath/etc/apt/sources.list.d/gxde-os-bpo.list
+    echo "deb [trusted=true] https://repo1.gxde.top/gxde-os/tianlu-bpo ./" >> $bottlePath/etc/apt/sources.list.d/gxde-os-bpo.list
 fi
 sudo mkdir -p $bottlePath/sources-list
 sudo cp -v .github/workflows/sources-*.list $bottlePath/sources-list
