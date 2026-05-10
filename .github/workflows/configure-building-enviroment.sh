@@ -45,6 +45,10 @@ if [[ -f /sources-list/sources-$1.list ]]; then
         fi
     fi
 fi
+sed -i "s%deb http%deb [trusted=true] http%g" /etc/apt/sources.list.d/*.list
+sed -i "s%deb-src http%deb-src [trusted=true] http%g" /etc/apt/sources.list.d/*.list
+sed -i "s%deb http%deb [trusted=true] http%g" /etc/apt/sources.list
+sed -i "s%deb-src http%deb-src [trusted=true] http%g" /etc/apt/sources.list
 for i in {1..8};
 do
     apt update -o Acquire::Check-Valid-Until=false -y
