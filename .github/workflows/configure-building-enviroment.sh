@@ -40,15 +40,12 @@ if [[ -f /sources-list/sources-$1.list ]]; then
     else
         if [[ $(dpkg --print-architecture) == "loong64" ]] || [[ $GXDE_CROSS_ARCH == "loong64" ]]; then
             cp /sources-list/sources-$1-loong64.list /etc/apt/sources.list.d -v
+            wget -O /etc/apt/trusted.gpg.d/debian-trixie-loong64.gpg https://loong13.debian.net/keyrings/debian-trixie-loong64.gpg
         else
             cp /sources-list/sources-$1.list /etc/apt/sources.list.d -v
         fi
     fi
 fi
-sed -i "s%deb http%deb [trusted=true] http%g" /etc/apt/sources.list.d/*.list
-sed -i "s%deb-src http%deb-src [trusted=true] http%g" /etc/apt/sources.list.d/*.list
-sed -i "s%deb http%deb [trusted=true] http%g" /etc/apt/sources.list
-sed -i "s%deb-src http%deb-src [trusted=true] http%g" /etc/apt/sources.list
 for i in {1..8};
 do
     apt update -o Acquire::Check-Valid-Until=false -y

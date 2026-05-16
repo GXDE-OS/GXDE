@@ -1,14 +1,14 @@
 deb http://loong13.debian.net/debian-loong64/ trixie main contrib non-free non-free-firmware
 deb-src http://loong13.debian.net/debian-loong64/ trixie main contrib non-free non-free-firmware
 
-deb [trusted=true] http://loong13.debian.net/debian-loong64/ trixie-updates main contrib non-free non-free-firmware
-deb-src [trusted=true] http://loong13.debian.net/debian-loong64/ trixie-updates main contrib non-free non-free-firmware
+deb http://loong13.debian.net/debian-loong64/ trixie-updates main contrib non-free non-free-firmware
+deb-src http://loong13.debian.net/debian-loong64/ trixie-updates main contrib non-free non-free-firmware
 
-deb [trusted=true] http://loong13.debian.net/debian-loong64/ trixie-backports main contrib non-free non-free-firmware
-deb-src [trusted=true] http://loong13.debian.net/debian-loong64/ trixie-backports main contrib non-free non-free-firmware
+deb http://loong13.debian.net/debian-loong64/ trixie-backports main contrib non-free non-free-firmware
+deb-src http://loong13.debian.net/debian-loong64/ trixie-backports main contrib non-free non-free-firmware
 
-deb [trusted=true] http://loong13.debian.net/debian-loong64-security/ trixie-security main contrib non-free non-free-firmware
-deb-src [trusted=true] http://loong13.debian.net/debian-loong64-security/ trixie-security main contrib non-free non-free-firmware
+deb http://loong13.debian.net/debian-loong64-security/ trixie-security main contrib non-free non-free-firmware
+deb-src http://loong13.debian.net/debian-loong64-security/ trixie-security main contrib non-free non-free-firmware
 
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
