@@ -120,6 +120,7 @@ jobs:
           echo -e "ls -1 | grep dbg_ | grep .deb | grep -v dtk | grep -v qt | grep -v dock | grep -v gxtk\nexit 0" | sudo tee remove-deb.sh
           removeDeb=$(bash remove-deb.sh)
           sudo rm -rf $removeDeb
+          sudo rm -rf linux-libc-dev_*_hetao.deb
 
       - name: Pack tar
         run: |
