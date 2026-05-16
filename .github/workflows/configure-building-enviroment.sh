@@ -33,7 +33,7 @@ fi
 #    echo "deb [trusted=true] https://deb.debian.org/debian-ports/ unreleased main" > /etc/apt/sources.list.d/debian-unreleased.list
 #fi
 apt install -f -y
-apt install debian-ports-archive-keyring debian-archive-keyring -y
+apt install debian-ports-archive-keyring debian-archive-keyring wget -y
 if [[ -f /sources-list/sources-$1.list ]]; then
     if [[ $(dpkg --print-architecture) == "riscv64" ]] || [[ $GXDE_CROSS_ARCH == "riscv64" ]]; then
         cp /sources-list/sources-$1-without-backport.list /etc/apt/sources.list.d -v
