@@ -88,8 +88,4 @@ Gitcode：https://gitcode.com/GXDE-OS
 <p><img src="https://www.gxde.top/install/gf.jpg" style="border-radius: 4px;" ></p>
 
 
-### 广告
-支付宝官方活动，扫描获得支付红包！  
-<p><img src="Icon/QR/advertisement0.jpg" width="250" ></p>
-
 # ©2023～Now gfdgd xi

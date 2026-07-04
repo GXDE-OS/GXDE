@@ -88,8 +88,4 @@ The author is online and hungry for support (nom nom~). Feeding might even get u
 
 <p><img src="https://www.gxde.top/install/gf.jpg" style="border-radius: 4px;" ></p>
 
-### Advertisement
-Scan to receive a payment red envelope from the Alipay official event!  
-<p><img src="Icon/QR/advertisement0.jpg" width="250" ></p>
-
 # ©2023～Now gfdgd xi
