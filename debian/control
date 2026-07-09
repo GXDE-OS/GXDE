@@ -69,7 +69,7 @@ Depends:
  gxde-font-installer, 
  gxde-movie, 
  gxde-quick-hash, 
- spark-store | aptss, 
+ spark-store, 
  deepin-system-monitor,
  gxde-control-center,
  gxde-file-manager,

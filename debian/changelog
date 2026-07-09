@@ -1,4 +1,4 @@
-gxde (2026.02.24) UNRELEASED; urgency=medium
+gxde (2026.07.09) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -24,8 +24,9 @@ gxde (2026.02.24) UNRELEASED; urgency=medium
   * 推荐安装 deepin 跨端协同
   * 更改 gxde-desktop-extra 推荐依赖
   * 推荐安装 firmware-atheros | firmware-ath9k-htc
+  * gxde-desktop-android 指定安装 spark-store 而不是可选安装 aptss
 
- -- gfdgd_xi <3025613752@qq.com>  Tue, 24 Feb 2026 14:00:23 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Thu, 09 Jul 2026 10:34:47 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 
