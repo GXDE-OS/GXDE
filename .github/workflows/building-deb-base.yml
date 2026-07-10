@@ -141,8 +141,10 @@ jobs:
           mkdir -p ~/.ssh/
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep .tar | head -n 1)
-          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM ${{ inputs.gxde-codename-upload }} $UPATH/$tarName > /dev/null
+          sudo sysctl -w net.ipv4.tcp_mtu_probing=1
+          sshpass -p "$UPASSWD" scp -o HostKeyAlgorithms=ecdsa-sha2-nistp256 -o KexAlgorithms=ecdh-sha2-nistp256 -c aes128-ctr -O $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -o HostKeyAlgorithms=ecdsa-sha2-nistp256 -o KexAlgorithms=ecdh-sha2-nistp256 -c aes128-ctr -p $UPORT $UPROGRAM ${{ inputs.gxde-codename-upload }} $UPATH/$tarName > /dev/null
+          sudo sysctl -w net.ipv4.tcp_mtu_probing=0
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
