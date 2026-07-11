@@ -90,8 +90,8 @@ Conflicts:
  linux-kernel-oldstable-gxde-loong64,
  plymouth,
  tela-grub2-themes,
- plymouth-theme-gxde-logo,
- firmware-atheros | firmware-ath9k-htc,
+ firmware-atheros,
+ firmware-ath9k-htc,
 Description: GXDE New Desktop Environment For PRoot - Next
  This is a meta package depends GXDE New Desktop Envrionment in Android PRoot.
  .
