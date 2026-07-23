@@ -1,8 +1,17 @@
+![HEADER](./readme-header.png)
+
+<div>
+<div style="float: left; display: flex; align-items: center" >
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
+</div>
+<div style="float: right">
+<a href="./README.zh.md">中文版</a>
+</div>
+</div>
 
 
 ## Welcome to GXDE OS Community 
-
-**[中文](/README.zh.md)**
 
 GXDE OS is an Debian based Linux distro featuring GXDE Desktop Environment. It offers an elegant, beautifu, light weight and out-of-the-box experience. 
 
@@ -88,4 +97,7 @@ The author is online and hungry for support (nom nom~). Feeding might even get u
 
 <p><img src="https://www.gxde.top/install/gf.jpg" style="border-radius: 4px;" ></p>
 
-# ©2023～Now gfdgd xi
+
+<span style="color: #E6004C; font-size: 20px"><b>©2023～Now gfdgd xi</b></span>
+
+<div style="background: #E6004C; width: 100%; height: 3px;"></div>

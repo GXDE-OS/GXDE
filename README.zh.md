@@ -1,11 +1,14 @@
-<center><img src=new-logo-long.png width=300/></center>
-<hr>
+![HEADER](./readme-header.png)
+
+<div>
+<div style="float: left; display: flex; align-items: center" >
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-
-![G-Start](https://gitcode.com/GXDE-OS/GXDE/star/badge.svg)  
-
-
-**[English](/README.md)**
+<img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
+</div>
+<div style="float: right">
+<a href="./README.md">English Version</a>
+</div>
+</div>
 
 
 ## 简介
@@ -87,5 +90,6 @@ Gitcode：https://gitcode.com/GXDE-OS
 
 <p><img src="https://www.gxde.top/install/gf.jpg" style="border-radius: 4px;" ></p>
 
+<span style="color: #E6004C; font-size: 20px"><b>©2023～Now gfdgd xi</b></span>
 
-# ©2023～Now gfdgd xi
+<div style="background: #E6004C; width: 100%; height: 3px;"></div>
