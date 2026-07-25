@@ -26,7 +26,9 @@ jobs:
           GITCODEUSER: ${{ secrets.GITCODEUSER }}
           ATOMGITTOKEN: ${{ secrets.ATOMGITTOKEN }}
           ATOMGITUSER: ${{ secrets.ATOMGITUSER }}
+          ATOMGITEEUSER: ${{ secrets.GITEEUSER }}
+          ATOMGITEETOCKEN: ${{ secrets.GITEETOCKEN }}
         run: |
           cd sync-gitee-to-github
-          python3 sync.py $GITHUBUSER $GITHUBTOKEN $GITCODEUSER $GITCODETOKEN $ATOMGITUSER $ATOMGITTOKEN
+          python3 sync.py $ATOMGITEEUSER $ATOMGITEETOCKEN $GITHUBUSER $GITHUBTOKEN $GITCODEUSER $GITCODETOKEN $ATOMGITUSER $ATOMGITTOKEN 
 

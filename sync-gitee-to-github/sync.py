@@ -9,7 +9,12 @@ programPath = os.path.split(os.path.realpath(__file__))[0]  # 返回 string
 dataHeaders = {
     "accept": "application/json"
 }
-pullUrl = "https://gitee.com/GXDE-OS/"
+giteeUser = ""
+giteePassword = ""
+if len(sys.argv) > 3:
+    giteeUser = sys.argv[1]
+    giteePassword = sys.argv[2]
+pullUrl = f"https://{giteeUser}:{giteePassword}@gitee.com/GXDE-OS/"
 pushUrl = [
     "https://@USER@:@PASS@@github.com/GXDE-OS/",
     "https://@USER@:@PASS@@gitcode.com/GXDE-OS/",
@@ -25,7 +30,8 @@ if (len(sys.argv) < 1 + len(pushUrl) * 2):
 # 读取参数
 userName = []
 password = []
-for i in range(1, len(sys.argv)):
+
+for i in range(1 + 2, len(sys.argv)):
     # 输入账户
     if (i % 2 == 1):
         userName.append(sys.argv[i])
