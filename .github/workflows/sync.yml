@@ -16,19 +16,15 @@ jobs:
       - name: Config
         run: |
           sudo apt update
-          sudo apt install git python3-requests -y
+          sudo apt install git -y
 
       - name: Push
         env: 
           GITHUBTOKEN: ${{ secrets.GITHUBTOKEN }}
           GITHUBUSER: ${{ secrets.GITHUBUSER }}
-          GITCODETOKEN: ${{ secrets.GITCODETOKEN }}
-          GITCODEUSER: ${{ secrets.GITCODEUSER }}
-          ATOMGITTOKEN: ${{ secrets.ATOMGITTOKEN }}
-          ATOMGITUSER: ${{ secrets.ATOMGITUSER }}
-          ATOMGITEEUSER: ${{ secrets.GITEEUSER }}
-          ATOMGITEETOCKEN: ${{ secrets.GITEETOCKEN }}
+          GITEEUSER: ${{ secrets.GITEEUSER }}
+          GITEETOCKEN: ${{ secrets.GITEETOCKEN }}
         run: |
           cd sync-gitee-to-github
-          python3 sync.py $ATOMGITEEUSER $ATOMGITEETOCKEN $GITHUBUSER $GITHUBTOKEN $GITCODEUSER $GITCODETOKEN $ATOMGITUSER $ATOMGITTOKEN 
+          python3 sync.py $GITEEUSER $GITEETOCKEN $GITHUBUSER $GITHUBTOKEN
 
