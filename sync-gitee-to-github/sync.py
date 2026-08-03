@@ -42,7 +42,12 @@ def apiGet(path, params):
 
 
 def getGiteeRepos(token):
-    """分页获取 Gitee 组织下全部仓库名"""
+    """分页获取 Gitee 组织下全部仓库的 path（URL 安全路径）
+
+    Gitee API 返回的 name 是仓库别名（可能含大写、中文或括号，如
+    "CTranslate2"），不能直接用作 clone URL 的路径组件；path 才是 URL
+    安全的仓库路径（如 "ctranslate2"），用它拼接 clone/push URL 才合法。
+    """
     repoList = []
     page = 1
     while True:
@@ -52,7 +57,7 @@ def getGiteeRepos(token):
         data = apiGet(f"/orgs/{orgName}/repos", params)
         if not isinstance(data, list) or len(data) == 0:
             break
-        repoList.extend([i["name"] for i in data])
+        repoList.extend([i["path"] for i in data])
         page += 1
     return repoList
 
