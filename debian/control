@@ -50,6 +50,7 @@ Recommends: ${misc:Depends},
  fcitx5-pinyin-zhwiki,
  dde-cooperation,
  firmware-atheros,
+ deepin-liferaft,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
