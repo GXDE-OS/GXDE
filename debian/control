@@ -52,6 +52,7 @@ Recommends: ${misc:Depends},
  dde-cooperation,
  firmware-atheros,
  deepin-liferaft,
+ gxde-wayland-session,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
