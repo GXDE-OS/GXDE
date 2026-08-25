@@ -1,4 +1,4 @@
-gxde (2026.08.23) UNRELEASED; urgency=medium
+gxde (2026.08.25) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -27,6 +27,7 @@ gxde (2026.08.23) UNRELEASED; urgency=medium
   * gxde-desktop-android 指定安装 spark-store 而不是可选安装 aptss
   * 添加推荐依赖 deepin-liferaft
   * 新增推荐依赖 gxde-dlna-caster
+  * 新增推荐依赖 gxde-filetransfer
   * 新增推荐依赖 gxde-wayland-session
 
  -- gfdgd_xi <3025613752@qq.com>  Tue, 11 Aug 2026 07:58:32 +0800
