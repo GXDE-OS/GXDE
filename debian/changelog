@@ -1,4 +1,4 @@
-gxde (2026.08.25) UNRELEASED; urgency=medium
+gxde (2026.10.04) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
   * 改为安装 dde-printer 
@@ -28,9 +28,9 @@ gxde (2026.08.25) UNRELEASED; urgency=medium
   * 添加推荐依赖 deepin-liferaft
   * 新增推荐依赖 gxde-dlna-caster
   * 新增推荐依赖 gxde-filetransfer
-  * 新增推荐依赖 gxde-wayland-session
+  * 新增推荐依赖 gxde-wayland-session, gxdm-emergency-mode, gxde-freewb, fcitx5-theme-deepin
 
- -- gfdgd_xi <3025613752@qq.com>  Tue, 11 Aug 2026 07:58:32 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 04 Oct 2026 20:40:04 +0800
 
 gxde (2024.10.20) UNRELEASED; urgency=medium
 

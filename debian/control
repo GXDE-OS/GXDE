@@ -49,11 +49,14 @@ Recommends: ${misc:Depends},
  deepin-log-viewer,
  fcitx5-table-wubi98,
  fcitx5-pinyin-zhwiki,
+ gxde-freewb,
+ fcitx5-theme-deepin,
  dde-cooperation,
  firmware-atheros,
  deepin-liferaft,
  gxde-wayland-session,
  gxde-filetransfer,
+ gxdm-emergency-mode,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
