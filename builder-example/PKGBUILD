@@ -1,0 +1,33 @@
+# PKGBUILD for testing purpose.
+
+pkgname=gxde-example
+pkgver=0
+pkgrel=1
+pkgdesc="GXDE example component"
+arch=('x86_64' 'aarch64')
+url="https://github.com/GXDE-OS/${pkgname}"
+license=('GPL-3.0-or-later')
+
+depends=('qt5-base')
+makedepends=('git' 'cmake' 'qt5-tools')
+source=()
+sha256sums=()
+
+_srcdir() {
+    git -C "$startdir" rev-parse --show-toplevel
+}
+
+pkgver() {
+    head -n 1 "$(_srcdir)/debian/changelog" | sed -E 's/.*\(([^)]*)\).*/\1/; s/^[0-9]+://; s/-/./g'
+}
+
+build() {
+    cmake -B build -S "$(_srcdir)" \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr
+    cmake --build build
+}
+
+package() {
+    DESTDIR="$pkgdir" cmake --install build
+}

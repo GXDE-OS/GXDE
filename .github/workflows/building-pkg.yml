@@ -1,0 +1,138 @@
+# Copyright (C) 2026 CharOfString <root@charofstring.cc>
+#
+# This program is free software: you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+# -----------------------------------------------------------------------------
+# 本工作流用于构建Archlinux软件包，仅接受根目录的PKGBUILD或arch/PKGBUILD，没有时跳过。
+# This workflow is used to build Arch Linux packages, it only accepts PKGBUILD
+# in the root directory of the repo or arch/PKGBUILD, otherwise this will be
+# skipped.
+
+name: Building GXDE Arch Package
+
+on:
+  workflow_call:
+    secrets:
+      PASSWD:
+        required: true
+      USERS:
+        required: true
+      HOST:
+        required: true
+      UPATH:
+        required: true
+      UPORT:
+        required: true
+      UPROGRAM_ARCH:
+        required: false
+
+env:
+  REPOSITORY: https://github.com/GXDE-OS/GXDE
+  BOTTLEPATH: system-bottle
+  GXDE_ARCH_REPO: https://repo1.gxde.top/gxde-arch
+
+jobs:
+  detect:
+    if: github.repository_owner == 'GXDE-OS'
+    runs-on: ubuntu-24.04
+    outputs:
+      pkgbuild-dir: ${{ steps.find.outputs.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find PKGBUILD
+        id: find
+        run: |
+          if [[ -f arch/PKGBUILD ]]; then
+            echo "dir=arch" >> $GITHUB_OUTPUT
+          elif [[ -f PKGBUILD ]]; then
+            echo "dir=." >> $GITHUB_OUTPUT
+          else
+            echo "No PKGBUILD found, skip Arch build"
+          fi
+
+  build:
+    needs: detect
+    if: needs.detect.outputs.pkgbuild-dir != ''
+    name: ${{ matrix.arch }}-arch
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x86_64
+            runner: ubuntu-24.04
+          - arch: aarch64
+            runner: ubuntu-24.04-arm
+    steps:
+      - name: Clone Repository To Get Script
+        run: |
+          git clone $REPOSITORY --depth=1
+          mv $(basename $REPOSITORY)/* . -v
+          mv $(basename $REPOSITORY)/.* . -v | true
+
+      - name: Configure Base System
+        run: |
+          bash .github/workflows/configure-building-enviroment-arch.sh ${{ matrix.arch }} \
+            $REPOSITORY \
+            https://github.com/$GITHUB_REPOSITORY \
+            ${{ github.ref_name }} \
+            $GXDE_ARCH_REPO
+
+      - name: Building ${{ GITHUB.repository }}
+        run: |
+          gitPath=/home/builder/$(basename $GITHUB_REPOSITORY)/${{ needs.detect.outputs.pkgbuild-dir }}
+          sudo chroot $BOTTLEPATH sudo -H -u builder bash -c \
+            "cd $gitPath && makepkg -s --noconfirm --needed"
+          mkdir -p packages
+          sudo find $BOTTLEPATH$gitPath -maxdepth 1 -name '*.pkg.tar.*' ! -name '*.sig' -exec cp -v {} packages/ \;
+          sudo chown -R $(id -u):$(id -g) packages
+          ls -l packages
+
+      - name: Remove Debug Package
+        run: |
+          rm -fv packages/*-debug-*.pkg.tar.*
+
+      - name: Pack tar
+        run: |
+          cd packages
+          tar -cvf ../arch-${{ matrix.arch }}-$(date +%s).tar *.pkg.tar.*
+
+      - name: Push
+        env:
+          UPASSWD: ${{ secrets.PASSWD }}
+          UUSERS: ${{ secrets.USERS }}
+          UHOST: ${{ secrets.HOST }}
+          UPATH: ${{ secrets.UPATH }}
+          UPROGRAM_ARCH: ${{ secrets.UPROGRAM_ARCH }}
+          UPORT: ${{ secrets.UPORT }}
+        run: |
+          if [[ -z "$UPROGRAM_ARCH" ]]; then
+            echo "::warning::UPROGRAM_ARCH is not set, skip uploading Arch packages"
+            exit 0
+          fi
+          sudo apt update
+          sudo apt install sshpass -y
+          mkdir -p ~/.ssh/
+          ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
+          tarName=$(ls | grep '^arch-.*\.tar$' | head -n 1)
+          sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM_ARCH ${{ matrix.arch }} $UPATH/$tarName > /dev/null
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOCKEN_GITHUB }}
+        with:
+          files: |
+            packages/*.pkg.tar.*
