@@ -19,7 +19,7 @@
 #   用法：
 #     arch-repo-update.sh <x86_64|aarch64> <arch-xxx.tar>
 #   依赖：
-#     repo-add (Archlinux自带；Debian上需要安装pacman-package-manager)
+#     repo-add、bsdtar、flock (Archlinux自带；Debian上需要安装pacman-package-manager、libarchive-tools)
 #   环境变量：
 #     GXDE_ARCH_REPO_ROOT  源根目录，对外地址为 https://repo1.gxde.top/gxde-arch/$arch
 #     GXDE_ARCH_GPG_KEY    可选，设置后对包和数据库进行签名
@@ -29,7 +29,8 @@
 # Usage:
 #   arch-repo-update.sh <x86_64|aarch64> <arch-xxx.tar>
 # Dependencies:
-#   repo-add (Archlinux built-in; on Debian, install pacman-package-manager)
+#   repo-add, bsdtar, flock (Archlinux built-in; on Debian, install pacman-package-manager
+#   and libarchive-tools)
 # Environment variables:
 #   GXDE_ARCH_REPO_ROOT  The root directory of the source, externally accessible at
 #                        https://repo1.gxde.top/gxde-arch/$arch
@@ -56,6 +57,15 @@ echo '████████║████╔═══╝██╔═══�
 echo '██╔═══██║██╔═╝    ██║      ██║   ██║██║      ██║██║   ██║██║   ██║  ████║  '
 echo '██║   ██║██║      ╚═██████╗██║   ██║████████╗██║██║   ██║╚═██████║██╔═══██╗'
 echo '╚═╝   ╚═╝╚═╝        ╚═════╝╚═╝   ╚═╝╚═══════╝╚═╝╚═╝   ╚═╝  ╚═════╝╚═╝   ╚═╝'
+
+# repo-add依赖bsdtar读取包，缺失时只会报"is not a package file"
+# repo-add needs bsdtar to read packages, without it it only says "is not a package file".
+for cmd in repo-add bsdtar flock; do
+    if ! command -v $cmd > /dev/null; then
+        echo "$cmd not found, install pacman-package-manager and libarchive-tools" >&2
+        exit 1
+    fi
+done
 
 case $arch in
     x86_64|aarch64) ;;
