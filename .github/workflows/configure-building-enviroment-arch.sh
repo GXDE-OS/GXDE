@@ -81,6 +81,10 @@ sudo mount --bind $bottle_path $bottle_path
 for i in proc sys dev dev/pts; do
     sudo mount --bind /$i $bottle_path/$i
 done
+# ALARM的resolv.conf是指向/run/systemd/resolve的绝对软链接，需先删除，否则cp会写穿到宿主机且chroot内仍无法解析
+# ALARM ships resolv.conf as an absolute symlink into /run/systemd/resolve, remove it first,
+# otherwise cp writes through to the host's file and DNS stays broken inside chroot.
+sudo rm -f $bottle_path/etc/resolv.conf
 sudo cp -L /etc/resolv.conf $bottle_path/etc/resolv.conf
 echo '[I] (Chroot) Mount: Done mounting the chroot!'
 
