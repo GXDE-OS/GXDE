@@ -123,15 +123,10 @@ jobs:
           sudo apt update
           sudo apt install sshpass -y
           mkdir -p ~/.ssh/
-          echo '[I] (Push) Scanning host key...'
           ssh-keyscan -p $UPORT -H $UHOST >> ~/.ssh/known_hosts
           tarName=$(ls | grep '^arch-.*\.tar$' | head -n 1)
-          echo "[I] (Push) Uploading $tarName..."
           sshpass -p "$UPASSWD" rsync -e "ssh -p $UPORT" $tarName $UUSERS@$UHOST:$UPATH
-          # 不要丢弃输出，否则服务器端脚本出错时看不到原因
-          # Keep the output, otherwise errors from the remote script are invisible.
-          echo '[I] (Push) Updating GXDE Arch repo database...'
-          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM_ARCH ${{ matrix.arch }} $UPATH/$tarName
+          sshpass -p "$UPASSWD" ssh $UUSERS@$UHOST -p $UPORT $UPROGRAM_ARCH ${{ matrix.arch }} $UPATH/$tarName > /dev/null
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
