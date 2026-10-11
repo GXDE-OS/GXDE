@@ -59,11 +59,11 @@ echo '╚═╝   ╚═╝╚═╝        ╚═════╝╚═╝   ╚
 
 case $arch in
     x86_64|aarch64) ;;
-    *) echo "Unsupported arch: $arch"; exit 1 ;;
+    *) echo "Unsupported arch: $arch" >&2; exit 1 ;;
 esac
 
 if [[ ! -f $tar_path ]]; then
-    echo "$tar_path not found"
+    echo "$tar_path not found" >&2
     exit 1
 fi
 
@@ -89,7 +89,7 @@ for pkg in $tmpDir/*.pkg.tar.*; do
 done
 
 if [[ ${#newPackages[@]} == 0 ]]; then
-    echo "No package in $tar_path"
+    echo "No package in $tar_path" >&2
     exit 1
 fi
 
