@@ -61,7 +61,7 @@ if [[ $build_arch == "x86_64" ]]; then
     wget -q https://geo.mirror.pkgbuild.com/iso/latest/archlinux-bootstrap-x86_64.tar.zst
     sudo tar --zstd -xpf archlinux-bootstrap-x86_64.tar.zst --numeric-owner
     sudo mv root.x86_64 $bottle_path
-    echo 'Server = https://geo.mirror.pkgbuild.com/$repo/os/$build_arch' | sudo tee $bottle_path/etc/pacman.d/mirrorlist
+    echo 'Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch' | sudo tee $bottle_path/etc/pacman.d/mirrorlist
     keyring=archlinux
 elif [[ $build_arch == "aarch64" ]]; then
     echo '[I] (Chroot) Init: Archtecture hit >> AARCH64.'
@@ -70,7 +70,7 @@ elif [[ $build_arch == "aarch64" ]]; then
     sudo tar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C $bottle_path --numeric-owner
     keyring=archlinuxarm
 else
-    echo '[E] (Chroot) Init: Unsupportted archtecture $arch, HALTED!'
+    echo "[E] (Chroot) Init: Unsupportted archtecture $build_arch, HALTED!"
     exit 1
 fi
 echo '[I] (Chroot) Init: Done downloading chroot for Archlinux.'
@@ -106,7 +106,7 @@ cat << EOF | sudo tee -a $bottle_path/etc/pacman.conf
 
 [gxde]
 SigLevel = Optional TrustAll
-Server = $gxde_arch_repo/\$build_arch
+Server = $gxde_arch_repo/\$arch
 EOF
 echo '[I] (Chroot) PACMAN: GXDE pacman source has been added to chroot!'
 echo '[I] (Chroot) PACMAN: Doing upgrade...'
@@ -120,6 +120,10 @@ for i in {1..5}; do
     if [[ $i == 3 ]]; then
         echo "GXDE Arch repo unreachable, building without it"
         sudo sed -i '/^\[gxde\]/,/^Server/d' $bottle_path/etc/pacman.conf
+    fi
+    if [[ $i == 5 ]]; then
+        echo '[E] (Chroot) PACMAN: Failed to upgrade chroot, HALTED!'
+        exit 1
     fi
     sleep 2
 done
