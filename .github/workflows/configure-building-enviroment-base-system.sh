@@ -21,9 +21,26 @@ function useLoongnix() {
 function useDeepin25() {
     sudo cp .github/workflows/crimson /usr/share/debootstrap/scripts/ -v
 }
+function getRootfsFromCloudTar() {
+    # $1=suite(bookworm/trixie) $2=arch
+    local suite=$1
+    local arch=$2
+    local version
+    case "$suite" in
+        bookworm) version=12 ;;
+        trixie)   version=13 ;;
+        *)        return 1 ;;
+    esac
+    local tarball="debian-${version}-nocloud-${arch}.tar.xz"
+    local url="http://cdimage.debian.org/cdimage/cloud/${suite}/latest/${tarball}"
+    sudo rm -rf "$bottlePath"
+    sudo mkdir -p "$bottlePath"
+    wget -O "/tmp/${tarball}" "$url"
+    sudo tar -xJf "/tmp/${tarball}" -C "$bottlePath"
+}
 
 sudo apt update
-sudo apt install debootstrap rename binfmt-support qemu-user qemu-user-static git -y
+sudo apt install debootstrap rename binfmt-support qemu-user qemu-user-static git xz-utils wget -y
 ls /usr/bin/qemu-*
 bottlePath=./system-bottle
 if [[ $2 == "beige" ]]; then
@@ -35,11 +52,16 @@ else
         useLoongnix
     fi
 fi
-if [[ $2 == "crimson" ]]; then
-    useDeepin25
-    sudo debootstrap --no-check-gpg --include=git,deepin-keyring,gcc,make,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+if [[ $1 != "loong64" ]] && [[ $2 == "bookworm" || $2 == "trixie" ]]; then
+    # 非 loong64 的 bookworm/trixie 直接从官方云镜像 tar 解压，跳过 debootstrap
+    getRootfsFromCloudTar $2 $1
 else
-    sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+    if [[ $2 == "crimson" ]]; then
+        useDeepin25
+        sudo debootstrap --no-check-gpg --include=git,deepin-keyring,gcc,make,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+    else
+        sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+    fi
 fi
 
 if [[ $2 == "crimson" ]]; then
