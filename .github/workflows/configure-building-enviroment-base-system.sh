@@ -39,7 +39,7 @@ if [[ $2 == "crimson" ]]; then
     useDeepin25
     sudo debootstrap --no-check-gpg --include=git,deepin-keyring,gcc,make,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
 else
-    sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates --arch=$1 $2 $bottlePath $5
+    sudo debootstrap --no-check-gpg --include=git,gcc,make,debian-ports-archive-keyring,debian-archive-keyring,g++,dpkg-dev,qtbase5-dev,ca-certificates,qt6-base-private-dev,qt6-base-dev --arch=$1 $2 $bottlePath $5
 fi
 
 if [[ $2 == "crimson" ]]; then
