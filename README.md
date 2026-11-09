@@ -42,7 +42,10 @@ Please Click the Star in the Upper Right Corner, Your Support is Our Greatest Mo
 ### User Group
 <center><img src=new-logo-long.png width=300/></center>
 
-QQ Group: 881201853  
+QQ Groups:  
+Group 1: 881201853  
+Group 2: 712629637  
+Beta feedback group: 1129752588  
 Discord: https://discord.gg/t5Uf2xYpvA  
 Forum: https://bbs.spark-app.store/  
 

@@ -36,7 +36,10 @@ GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，�
 
 ### 沟通渠道
 
-QQ 群：881201853  
+QQ 群：  
+1 群：881201853  
+2 群：712629637  
+内测反馈群：1129752588  
 Discord：https://discord.gg/t5Uf2xYpvA  
 论坛：https://bbs.spark-app.store/  
 
