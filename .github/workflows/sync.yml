@@ -1,4 +1,4 @@
-name: Synch Gitee To Github
+name: Synch Github To Gitee
 on:
   workflow_call:
   workflow_dispatch:
@@ -25,6 +25,5 @@ jobs:
           GITEEUSER: ${{ secrets.GITEEUSER }}
           GITEETOCKEN: ${{ secrets.GITEETOCKEN }}
         run: |
-          cd sync-gitee-to-github
-          python3 sync.py $GITEEUSER $GITEETOCKEN $GITHUBUSER $GITHUBTOKEN
-
+          cd sync-github-to-gitee
+          python3 sync.py "$GITHUBUSER" "$GITHUBTOKEN" "$GITEEUSER" "$GITEETOCKEN"

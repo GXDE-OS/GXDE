@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-将 Gitee 上的 GXDE-OS 组织仓库镜像同步到 GitHub（GXDE-OS 组织）。
+将 GitHub 上的 GXDE-OS 组织仓库镜像同步到 Gitee（GXDE-OS 组织）。
 
 用法:
-    python3 sync.py <gitee用户名> <gitee密码或Token> <github用户名> <githubToken>
+    python3 sync.py <github用户名> <githubToken> <gitee用户名> <gitee密码或Token>
 
 流程:
-    1. 通过 Gitee API v5 分页获取 GXDE-OS 组织下的全部仓库列表（带 token 失败时回退匿名）
-    2. 多线程 clone --bare 拉取 Gitee 仓库
-    3. 逐个 push --mirror 推送到 GitHub，失败自动重试并在结束时汇总报告
+    1. 通过 GitHub REST API 分页获取 GXDE-OS 组织下的全部仓库列表（带 token 失败时回退匿名）
+    2. 多线程 clone --bare 拉取 GitHub 仓库
+    3. 逐个 push --mirror 推送到 Gitee，失败自动重试并在结束时汇总报告
+
+注意:
+    - Gitee 侧的同名仓库需要预先存在，push --mirror 会覆盖其分支与标签
+    - GitHub 只接受 Personal Access Token 作为密码（需具备组织仓库的读取权限）
 """
 import json
 import os
@@ -28,36 +32,42 @@ threadMax = 8
 
 
 def usage():
-    print("用法: python3 sync.py <gitee用户名> <gitee密码或Token> <github用户名> <githubToken>")
+    print("用法: python3 sync.py <github用户名> <githubToken> <gitee用户名> <gitee密码或Token>")
     sys.exit(1)
 
 
-def apiGet(path, params):
-    """调用 Gitee API v5 的单个请求"""
+def apiGet(path, params, token):
+    """调用 GitHub REST API 的单个请求"""
     params["per_page"] = str(perPage)
-    url = "https://gitee.com/api/v5" + path + "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"User-Agent": "GXDE-Sync/1.0"})
+    url = "https://api.github.com" + path + "?" + urllib.parse.urlencode(params)
+    headers = {
+        "User-Agent": "GXDE-Sync/1.0",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    if token:
+        headers["Authorization"] = "Bearer " + token
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
 
-def getGiteeRepos(token):
-    """分页获取 Gitee 组织下全部仓库的 path（URL 安全路径）
+def getGithubRepos(token):
+    """分页获取 GitHub 组织下全部仓库的 name（即 URL 路径中的仓库名）
 
-    Gitee API 返回的 name 是仓库别名（可能含大写、中文或括号，如
-    "CTranslate2"），不能直接用作 clone URL 的路径组件；path 才是 URL
-    安全的仓库路径（如 "ctranslate2"），用它拼接 clone/push URL 才合法。
+    带 token 时 type=all 可包含私有仓库；匿名请求只返回公开仓库。
+    GitHub 的 name 可直接拼接 clone/push URL，无需像 Gitee 那样取 path 字段。
     """
     repoList = []
     page = 1
     while True:
-        params = {"page": str(page)}
-        if token:
-            params["access_token"] = token
-        data = apiGet(f"/orgs/{orgName}/repos", params)
+        params = {"page": str(page), "type": "all"}
+        data = apiGet(f"/orgs/{orgName}/repos", params, token)
         if not isinstance(data, list) or len(data) == 0:
             break
-        repoList.extend([i["path"] for i in data])
+        repoList.extend([i["name"] for i in data])
+        if len(data) < perPage:
+            break
         page += 1
     return repoList
 
@@ -70,7 +80,7 @@ def runGit(args, cwd=None):
 def syncRepo(name, pullUrl, pushUrl):
     repoDir = os.path.join(cloneDir, name + ".git")
     try:
-        # 1. 从 Gitee clone --bare（重试 3 次）
+        # 1. 从 GitHub clone --bare（重试 3 次）
         ok = False
         lastOut = ""
         for attempt in range(3):
@@ -84,7 +94,7 @@ def syncRepo(name, pullUrl, pushUrl):
             print(f"[FAIL] clone 失败: {name}\n{lastOut}")
             return False
 
-        # 2. push --mirror 到 GitHub（重试 3 次）
+        # 2. push --mirror 到 Gitee（重试 3 次）
         ok = False
         lastOut = ""
         for attempt in range(3):
@@ -108,19 +118,21 @@ def syncRepo(name, pullUrl, pushUrl):
 def main():
     if len(sys.argv) < 5:
         usage()
-    giteeUser, giteeToken = sys.argv[1], sys.argv[2]
-    githubUser, githubToken = sys.argv[3], sys.argv[4]
+    githubUser, githubToken = sys.argv[1], sys.argv[2]
+    giteeUser, giteeToken = sys.argv[3], sys.argv[4]
 
-    pullUrl = f"https://{urllib.parse.quote(giteeUser)}:{urllib.parse.quote(giteeToken)}@gitee.com/{orgName}/"
-    pushUrl = f"https://{urllib.parse.quote(githubUser)}:{urllib.parse.quote(githubToken)}@github.com/{orgName}/"
+    githubAuth = urllib.parse.quote(githubUser, safe="") + ":" + urllib.parse.quote(githubToken, safe="")
+    giteeAuth = urllib.parse.quote(giteeUser, safe="") + ":" + urllib.parse.quote(giteeToken, safe="")
+    pullUrl = f"https://{githubAuth}@github.com/{orgName}/"
+    pushUrl = f"https://{giteeAuth}@gitee.com/{orgName}/"
 
     os.makedirs(cloneDir, exist_ok=True)
 
-    # 获取仓库列表：优先带 token，失败则回退到匿名（仅公开仓库）
+    # 获取仓库列表：优先带 token（可含私有仓库），失败则回退到匿名（仅公开仓库）
     try:
-        repoList = getGiteeRepos(giteeToken)
+        repoList = getGithubRepos(githubToken)
     except Exception:
-        repoList = getGiteeRepos("")
+        repoList = getGithubRepos("")
     print(f"共获取到 {len(repoList)} 个仓库")
     if not repoList:
         print("未能获取仓库列表，退出")
