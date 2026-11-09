@@ -2,7 +2,7 @@
 
 <div>
 <div style="float: left; display: flex; align-items: center" >
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github"><a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 <img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
 </div>
 <div style="float: right">
@@ -10,6 +10,9 @@
 </div>
 </div>
 
+**注：经过组织内部沟通决定，从现在开始 GXDE 将主要托管至 Github，Gitee 只做镜像同步。**  
+**Issues 和 Pr 请提交至 GXDE Github 相关仓库**  
+**Github 仓库：http://github.com/GXDE-OS/GXDE**  
 
 ## 简介
 

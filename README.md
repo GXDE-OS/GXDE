@@ -1,7 +1,7 @@
 ![HEADER](./readme-header.png)
 
 <div>
-<div style="float: left; display: flex; align-items: center" >
+<div style="float: left; display: flex; align-items: center" ><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github">
 <a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 <img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
 </div>
@@ -10,6 +10,9 @@
 </div>
 </div>
 
+**Note: Following internal discussion, it has been decided that from now on GXDE will be primarily hosted on GitHub, with Gitee used only for mirror synchronisation.**    
+**Please submit Issues and PRs to the relevant GXDE GitHub repositories.**    
+**GitHub repository: http://github.com/GXDE-OS/GXDE**  
 
 ## Welcome to GXDE OS Community 
 
