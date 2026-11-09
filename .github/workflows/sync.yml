@@ -10,6 +10,7 @@ on:
 jobs:  
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
 
@@ -26,4 +27,4 @@ jobs:
           GITEETOCKEN: ${{ secrets.GITEETOCKEN }}
         run: |
           cd sync-github-to-gitee
-          python3 sync.py "$GITHUBUSER" "$GITHUBTOKEN" "$GITEEUSER" "$GITEETOCKEN"
+          python3 -u sync.py "$GITHUBUSER" "$GITHUBTOKEN" "$GITEEUSER" "$GITEETOCKEN"
