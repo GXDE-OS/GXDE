@@ -2,8 +2,10 @@
 
 <div>
 <div style="float: left; display: flex; align-items: center" ><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github">
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github"></a>
+<a href='https://github.com/GXDE-OS'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
 <img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
+<a href='https://sourceforge.net/projects/gxde-os/'><img src='https://img.shields.io/sourceforge/dw/gxde-os?style=flat&logo=sourceforge' alt='Sourceforge'></img></a>
 </div>
 <div style="float: right">
 <a href="./README.zh.md">中文版</a>
