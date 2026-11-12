@@ -123,6 +123,7 @@ Depends: ${misc:Depends},
  gxde-default-settings,
  gxde-shell-tools,
  gxde-compressor,
+ gxde-lock,
 Recommends:
  gxde-desktop-extra | gxde-desktop-android,
  gxde-editor,
