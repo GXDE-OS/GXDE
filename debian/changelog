@@ -1,3 +1,9 @@
+gxde (2026.11.11) UNRELEASED; urgency=medium
+
+  * 新增 gxde-lock 作为新的锁屏模块
+
+ -- CharOfString <root@charofstring.cc>  Wed, 11 Nov 2026 19:56:05 -0600
+
 gxde (2026.10.26) UNRELEASED; urgency=medium
 
   * 新增 remmina 以解决远程问题
