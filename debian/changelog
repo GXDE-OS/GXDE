@@ -1,3 +1,9 @@
+gxde (2026.11.21) UNRELEASED; urgency=medium
+
+  * 新增推荐依赖 gxde-ai-see
+
+ -- shenmo <shenmo@spark-app.store>  Sat, 21 Nov 2026 17:00:32 +0800
+
 gxde (2026.11.11) UNRELEASED; urgency=medium
 
   * 新增 gxde-lock 作为新的锁屏模块

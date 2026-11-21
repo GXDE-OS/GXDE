@@ -56,6 +56,7 @@ Recommends: ${misc:Depends},
  gxde-wayland-session,
  gxde-filetransfer,
  gxdm-emergency-mode,
+ gxde-ai-see,
 Description: GXDE New Desktop Environment Extra - Next
  This is a meta package depends GXDE New Desktop Envrionment Extra.
  .
