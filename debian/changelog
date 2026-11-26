@@ -1,3 +1,13 @@
+gxde (2026.11.26) UNRELEASED; urgency=medium
+
+  * Wayland 会话默认合成器切换为 flakewm：gxde-wayland-session 依赖
+    flakewm / gxde-flake-session，gxde-wlcom 保留为回退会话
+  * gxde-desktop 推荐依赖 gxde-wayland-session，保证默认会话可用
+  * GXDM 默认登录会话改为 gxde-flakewm（老用户升级时一次性迁移）
+  * gxde-control-center 适配 flakewm 的 /etc/flakewm/config.json
+
+ -- shenmo <shenmo@spark-app.store>  Thu, 26 Nov 2026 20:50:00 +0800
+
 gxde (2026.11.21) UNRELEASED; urgency=medium
 
   * 新增推荐依赖 gxde-ai-see

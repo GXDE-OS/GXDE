@@ -127,6 +127,7 @@ Depends: ${misc:Depends},
  gxde-lock,
 Recommends:
  gxde-desktop-extra | gxde-desktop-android,
+ gxde-wayland-session,
  gxde-editor,
  gxde-introduction,
  pppoe,
